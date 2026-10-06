@@ -49,7 +49,7 @@ const mime: Record<string, string> = {
 };
 
 export function createAppServer(options: {
-  generate: (request: ActivityRequest) => Promise<ActivityCard>; distDir: string;
+  generate: (request: ActivityRequest, signal?: AbortSignal) => Promise<ActivityCard>; distDir: string;
 }): Server {
   let busy = false;
   const server = createServer((req, res) => {
@@ -83,15 +83,19 @@ export function createAppServer(options: {
         return json(res, error instanceof BodyError ? error.status : 400,
           { error: error instanceof BodyError ? error.message : 'Choose a supported duration and surroundings.' });
       }
+      if (res.destroyed || req.aborted) return;
       if (busy) return json(res, 409, { error: 'An activity is already being generated. Wait and try again.' });
       busy = true;
-      try { json(res, 200, await options.generate(input)); }
+      const controller = new AbortController();
+      const disconnect = () => { if (!res.writableFinished) controller.abort(); };
+      res.once('close', disconnect);
+      try { json(res, 200, await options.generate(input, controller.signal)); }
       catch (error) {
         const timeout = error instanceof GenerationError && error.code === 'timeout';
         json(res, timeout ? 504 : 502, { error: timeout ?
           'The local model took too long. Try again or use a smaller local model.' :
           'Could not generate an activity. Check Ollama and the model, then try again.' });
-      } finally { busy = false; }
+      } finally { res.removeListener('close', disconnect); busy = false; }
       return;
     }
     if (path.startsWith('/api/')) return json(res, 404, { error: 'Route not found.' });

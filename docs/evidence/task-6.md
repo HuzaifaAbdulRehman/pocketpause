@@ -22,7 +22,7 @@ not an untouched-machine or fresh-download test.
 
 The clone's real-model flow generated Outdoor Pause in Courtyard and saved
 matching text. Its automatic recording is kept only in local ignored scratch;
-the first real run's [demo asset](real-demo.webm) is preserved
+the final real-model [demo asset](real-demo.webm) is preserved
 in Git. Neither recording claims outdoor usage. Model-free tests cover
 invalid input, timeouts, failed output, loading, retry, inert markup, saved
 context, hostile origin/host and restricted static files.
@@ -51,3 +51,7 @@ The app meets the approved software scope. It uses actual local inference,
 saves text, records all 12 combinations and a baseline, and has a real-model
 browser and clean-clone check. An outdoor trial remains explicitly pending.
 The submission is prepared locally, not submitted or guaranteed eligible.
+
+The later [review and fixes](review.md) add disconnect cancellation and a
+readable demo capture. Their regressions verify the changed runtime path;
+unchanged dependency/setup/build evidence above is retained.

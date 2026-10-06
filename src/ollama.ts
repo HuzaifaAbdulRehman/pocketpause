@@ -72,13 +72,17 @@ async function readBounded(response: Response, signal: AbortSignal): Promise<str
 }
 
 export function createGenerator(options: { fetchImpl?: typeof fetch; model?: string; timeoutMs?: number } = {}):
-  (request: ActivityRequest) => Promise<ActivityCard> {
+  (request: ActivityRequest, signal?: AbortSignal) => Promise<ActivityCard> {
   const fetchImpl = options.fetchImpl ?? fetch;
-  return async (request) => {
+  return async (request, signal) => {
     const controller = new AbortController();
+    const cancel = () => controller.abort(signal?.reason);
+    signal?.addEventListener('abort', cancel, { once: true });
+    if (signal?.aborted) cancel();
     const deadline = setTimeout(() => controller.abort(new GenerationError('timeout',
       'The local model took too long. Try again or choose a smaller local model.')), options.timeoutMs ?? 120000);
     try {
+      if (controller.signal.aborted) throw controller.signal.reason;
       let response: Response;
       try {
         response = await fetchImpl('http://127.0.0.1:11434/api/generate', {
@@ -115,6 +119,7 @@ Vary the attention cue, not the imagined scenery. The person can skip any step a
       }
     } finally {
       clearTimeout(deadline);
+      signal?.removeEventListener('abort', cancel);
     }
   };
 }

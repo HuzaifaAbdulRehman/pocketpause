@@ -13,7 +13,8 @@ let browser;
 let context;
 try {
   browser = await chromium.launch();
-  context = await browser.newContext({ viewport: { width: 1100, height: 900 }, recordVideo: { dir: output } });
+  context = await browser.newContext({ viewport: { width: 1100, height: 1100 },
+    recordVideo: { dir: output, size: { width: 1100, height: 1100 } } });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
@@ -22,6 +23,9 @@ try {
   await page.getByRole('button', { name: 'Save activity' }).waitFor({ timeout: 125000 });
   const title = await page.locator('article h2').innerText();
   await page.screenshot({ path: `${output}/real-flow.png`, fullPage: true });
+  const cardVisibleStart = performance.now();
+  await page.waitForTimeout(4000);
+  const cardVisibleMs = performance.now() - cardVisibleStart;
   const downloading = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Save activity' }).click();
   const download = await downloading;
@@ -29,7 +33,17 @@ try {
   const text = await readFile(`${output}/real-card.txt`, 'utf8');
   if (!text.includes(title) || !text.includes('5 minutes · courtyard') || !text.includes('Stay away from traffic and edges.')) throw new Error('Downloaded card does not match the real activity.');
   if (errors.length) throw new Error(errors.join('\n'));
-  console.log(JSON.stringify({ actualTitle: title, download: 'real-card.txt', screenshot: 'real-flow.png', browserErrors: errors, output }));
+  const savedStatus = page.getByRole('status').filter({ hasText: 'Saved.' });
+  await savedStatus.waitFor();
+  await savedStatus.scrollIntoViewIfNeeded();
+  const box = await savedStatus.boundingBox();
+  const viewport = page.viewportSize();
+  const savedInViewport = !!box && !!viewport && box.y >= 0 && box.y + box.height <= viewport.height;
+  if (!savedInViewport) throw new Error('Saved confirmation is outside the recorded viewport.');
+  const savedVisibleStart = performance.now();
+  await page.waitForTimeout(4000);
+  const savedVisibleMs = performance.now() - savedVisibleStart;
+  console.log(JSON.stringify({ actualTitle: title, download: 'real-card.txt', screenshot: 'real-flow.png', browserErrors: errors, cardVisibleMs, savedVisibleMs, savedInViewport, output }));
   await context.close();
   context = undefined;
   const video = await page.video().path();

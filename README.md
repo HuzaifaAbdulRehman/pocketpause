@@ -85,6 +85,8 @@ Browser setup downloads project-local Chromium. The five browser tests
 use controlled API responses and need no model. Smoke uses the real model
 and records a local video under .tools/smoke. For development, `npm.cmd run dev`
 starts the local API and Vite on port 5173.
+The readable-video regression is `node --test tests/demo.test.mjs`; it needs
+the same local model/browser and is deliberately outside model-free CI.
 
 An optional measurement run needs a new filename:
 

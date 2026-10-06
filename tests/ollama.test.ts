@@ -165,3 +165,24 @@ test('bounds response-body reading with the same deadline', async () => {
   await assert.rejects(generate(request), hasCode('timeout'));
   assert.equal(cancelled, true);
 });
+
+test('propagates caller cancellation to inference and remains reusable', async () => {
+  let entered!: () => void;
+  const started = new Promise<void>(resolve => { entered = resolve; });
+  let calls = 0;
+  let cancelled = false;
+  const generate = createGenerator({ timeoutMs: 100, fetchImpl: async (_url, init) => {
+    if (++calls > 1) return complete();
+    entered();
+    return await new Promise<Response>((_resolve, reject) => {
+      init?.signal?.addEventListener('abort', () => { cancelled = true; reject(init.signal?.reason); }, { once: true });
+    });
+  } });
+  const controller = new AbortController();
+  const pending = generate(request, controller.signal);
+  await started;
+  controller.abort();
+  await assert.rejects(pending, { name: 'AbortError' });
+  assert.equal(cancelled, true);
+  assert.equal((await generate(request)).title, 'Notice light');
+});

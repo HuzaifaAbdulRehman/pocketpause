@@ -17,7 +17,7 @@ await writeFile(join(dist, 'assets', 'app.js'), 'console.log("app")');
 await writeFile(join(dist, 'private.txt'), 'not public');
 after(() => rm(dist, { recursive: true, force: true }));
 
-async function fixture(generate: (input: ActivityRequest) => Promise<ActivityCard> = async () => card) {
+async function fixture(generate: (input: ActivityRequest, signal?: AbortSignal) => Promise<ActivityCard> = async () => card) {
   const server = createAppServer({ generate, distDir: dist });
   await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
   const address = server.address();
@@ -131,4 +131,41 @@ test('rejects encoded traversal and unsupported methods', async () => {
     assert.equal((await fetch(`${f.url}/api/activity`)).status, 405);
     assert.equal((await fetch(f.url, { method: 'POST' })).status, 405);
   } finally { await f.close(); }
+});
+
+test('downstream disconnect cancels inference and permits a new request', async () => {
+  let entered!: () => void;
+  let release!: () => void;
+  const started = new Promise<void>(resolve => { entered = resolve; });
+  let cancelled = false;
+  let active = 0;
+  let maximumActive = 0;
+  let calls = 0;
+  const f = await fixture(async (_input, signal) => {
+    active++;
+    maximumActive = Math.max(maximumActive, active);
+    try {
+      if (++calls > 1) return card;
+      entered();
+      await new Promise<void>(resolve => {
+        release = resolve;
+        signal?.addEventListener('abort', () => { cancelled = true; resolve(); }, { once: true });
+      });
+      return card;
+    } finally { active--; }
+  });
+  const controller = new AbortController();
+  try {
+    const pending = fetch(`${f.url}/api/activity`, { method: 'POST',
+      headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(input), signal: controller.signal });
+    await started;
+    controller.abort();
+    await assert.rejects(pending, { name: 'AbortError' });
+    const deadline = Date.now() + 1000;
+    while (!cancelled && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 10));
+    assert.equal(cancelled, true);
+    assert.equal((await f.post()).status, 200);
+    assert.equal(calls, 2);
+    assert.equal(maximumActive, 1);
+  } finally { controller.abort(); release?.(); await f.close(); }
 });
