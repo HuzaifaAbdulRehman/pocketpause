@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import { createGenerator, GenerationError } from '../src/ollama.ts';
 
 const request = { duration: 5 as const, surroundings: 'courtyard' as const };
-const validActivity = { title: 'Notice light', steps: ['Observe a shadow from a safe spot.'] };
+const validActivity = { title: 'Notice light', steps: ['If a shadow is visible, observe it from a safe spot.'] };
 
 function response(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
@@ -25,7 +25,7 @@ test('returns a validated card with the original context', async () => {
   const generate = createGenerator({ fetchImpl: async () => complete() });
   assert.deepEqual(await generate(request), {
     duration: 5, surroundings: 'courtyard', title: 'Notice light',
-    steps: ['Observe a shadow from a safe spot.'], source: 'local-ai',
+    steps: ['If a shadow is visible, observe it from a safe spot.'], source: 'local-ai',
   });
 });
 
@@ -38,6 +38,8 @@ test('uses a fixed local endpoint and constrains the model request', async () =>
     assert.equal(body.stream, false);
     assert.equal(body.think, false);
     assert.equal(body.options.num_predict, 256);
+    assert.equal(body.options.temperature, 0.2);
+    assert.equal(body.options.seed, 42);
     assert.equal(body.format.additionalProperties, false);
     assert.deepEqual(body.format.required, ['title', 'steps']);
     assert.equal(body.format.properties.title.maxLength, 80);
@@ -56,6 +58,26 @@ test('uses a fixed local endpoint and constrains the model request', async () =>
 test('reports a missing model instead of returning a canned activity', async () => {
   const generate = createGenerator({ fetchImpl: async () => response({ error: 'model not found' }, 404) });
   await assert.rejects(generate(request), hasCode('unavailable'));
+});
+
+test('treats the scene as unknown rather than inventing its features', async () => {
+  const generate = createGenerator({ fetchImpl: async (_url, init) => {
+    const body = JSON.parse(String(init?.body));
+    assert.ok(body.system.includes('The actual scene is unknown'));
+    assert.ok(body.system.includes('if visible'));
+    assert.ok(body.system.includes('already audible'));
+    assert.ok(body.system.includes('never assert'));
+    return complete();
+  } });
+  await generate(request);
+});
+
+test('rejects unconditional scene descriptions from the measured failure', async () => {
+  const generate = createGenerator({ fetchImpl: async () => complete({
+    title: 'Observing the Courtyard',
+    steps: ['Notice the shape and size of the courtyard. It is a rectangular space with a small fence around it.'],
+  }) });
+  await assert.rejects(generate(request), hasCode('invalid-output'));
 });
 
 test('reports an upstream server error', async () => {
@@ -105,14 +127,14 @@ test('rejects a body larger than 16384 bytes', async () => {
 
 for (const step of ['Cross the road.', 'Climb onto the roof.', 'Take a photo.', 'Record a bird.', 'Ask a stranger for directions.']) {
   test(`rejects disallowed instruction: ${step}`, async () => {
-    const generate = createGenerator({ fetchImpl: async () => complete({ title: 'Observe', steps: [step] }) });
+    const generate = createGenerator({ fetchImpl: async () => complete({ title: 'Observe', steps: [`If you are outside: ${step}`] }) });
     await assert.rejects(generate(request), hasCode('invalid-output'));
   });
 }
 
 test('allows safe observation text and words containing a blocked substring', async () => {
   const generate = createGenerator({ fetchImpl: async () => complete({
-    title: 'Notice broad shapes', steps: ['From a stationary spot, notice a nearby window.'],
+    title: 'Notice broad shapes', steps: ['If a window is visible, notice its outline from a stationary spot.'],
   }) });
   assert.equal((await generate(request)).title, 'Notice broad shapes');
 });

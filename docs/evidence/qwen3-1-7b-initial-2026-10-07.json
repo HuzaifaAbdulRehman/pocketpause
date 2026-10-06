@@ -1,0 +1,922 @@
+{
+  "checkedAt": "2026-10-06T19:33:08.925Z",
+  "model": {
+    "name": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "bytes": 1359293444,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "2.0B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "version": "0.40.0"
+  },
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "release": "10.0.19045",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 15.9
+  },
+  "coldBefore": {
+    "models": []
+  },
+  "trials": [
+    {
+      "phase": "cold",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 19867.59,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:33:28.776765Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Shape\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the way light falls on the street surface. Look for patterns or reflections.\\\",\\n    \\\"Observe the shapes of objects around you—like the edges of buildings or the curves of parked cars.\\\",\\n    \\\"Listen to the sounds of the street: the rhythm of footsteps, the hum of traffic, or the distant sound of a motor vehicle.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,22526,756,220,330,24080,788,2278,262,330,34193,279,1616,3100,17066,389,279,8592,7329,13,9192,369,12624,476,62751,10346,262,330,4121,13267,279,20816,315,6171,2163,498,2293,4803,279,12822,315,13702,476,279,35933,315,42235,9331,10346,262,330,38714,311,279,10362,315,279,8592,25,279,36290,315,59702,11,279,2784,315,9442,11,476,279,28727,5112,315,264,8872,7310,10040,220,5133,92],\"total_duration\":19833956800,\"load_duration\":5513539900,\"prompt_eval_count\":165,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":4882127000,\"eval_count\":91,\"eval_duration\":9398083000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 7955.65,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:33:36.7565395Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Sound\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the way natural light filters through the street pavement, creating soft shadows and highlights.\\\",\\n    \\\"Listen for the quiet hum of traffic and the distant sound of passing vehicles.\\\",\\n    \\\"Observe the shape and movement of the street lamps and their reflections on the wet pavement.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,14594,756,220,330,24080,788,2278,262,330,34193,279,1616,5810,3100,13406,1526,279,8592,64342,11,6825,8413,34512,323,21314,10346,262,330,38714,369,279,11340,2784,315,9442,323,279,28727,5112,315,12299,11474,10346,262,330,4121,13267,279,6083,323,7203,315,279,8592,49452,323,862,62751,389,279,14401,64342,10040,220,5133,92],\"total_duration\":7940922800,\"load_duration\":25068500,\"prompt_eval_count\":165,\"prompt_eval_cached_count\":164,\"prompt_eval_duration\":134580000,\"eval_count\":77,\"eval_duration\":7766706000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 8495.34,
+      "card": {
+        "title": "Observing the Terrace",
+        "steps": [
+          "Notice the light filtering through the glass walls of the terrace.",
+          "Look for shapes in the reflections of the light on the floor and walls.",
+          "Listen for the soft rustling of the air and the faint sound of wind moving through the terrace."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:33:45.2551141Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the light filtering through the glass walls of the terrace.\\\",\\n    \\\"Look for shapes in the reflections of the light on the floor and walls.\\\",\\n    \\\"Listen for the soft rustling of the air and the faint sound of wind moving through the terrace.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,79170,756,220,330,24080,788,2278,262,330,34193,279,3100,29670,1526,279,8991,14285,315,279,51478,10346,262,330,10380,369,20816,304,279,62751,315,279,3100,389,279,6422,323,14285,10346,262,330,38714,369,279,8413,23071,2718,315,279,3720,323,279,37578,5112,315,9956,7218,1526,279,51478,10040,220,5133,92],\"total_duration\":8484061600,\"load_duration\":25320500,\"prompt_eval_count\":165,\"prompt_eval_cached_count\":150,\"prompt_eval_duration\":943920000,\"eval_count\":73,\"eval_duration\":7500947000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 10309.01,
+      "card": {
+        "title": "Observing the Courtyard",
+        "steps": [
+          "Notice the shape and size of the courtyard. It is a rectangular space with a small fence around it.",
+          "Look at the light filtering through the fence. It creates soft, diffused shadows on the ground.",
+          "Listen to the sound of wind moving through the fence and the rustling of leaves in the surrounding trees."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:33:55.5598097Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the shape and size of the courtyard. It is a rectangular space with a small fence around it.\\\",\\n    \\\"Look at the light filtering through the fence. It creates soft, diffused shadows on the ground.\\\",\\n    \\\"Listen to the sound of wind moving through the fence and the rustling of leaves in the surrounding trees.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,6244,55536,756,220,330,24080,788,2278,262,330,34193,279,6083,323,1379,315,279,65285,13,1084,374,264,51424,3550,448,264,2613,24650,2163,432,10346,262,330,10380,518,279,3100,29670,1526,279,24650,13,1084,11450,8413,11,3638,2591,34512,389,279,4910,10346,262,330,38714,311,279,5112,315,9956,7218,1526,279,24650,323,279,23071,2718,315,10901,304,279,14590,12408,10040,220,5133,92],\"total_duration\":10290691800,\"load_duration\":17999000,\"prompt_eval_count\":165,\"prompt_eval_cached_count\":150,\"prompt_eval_duration\":576920000,\"eval_count\":89,\"eval_duration\":9679206000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 14802.6,
+      "card": {
+        "title": "Observing the Campus",
+        "steps": [
+          "Notice the ordinary light: Look at the way the sunlight filters through the windows or skylights, and how it casts soft shadows on the floor.",
+          "Observe the shapes: Note the rounded shapes of objects like chairs or tables, and the angular shapes of buildings or trees.",
+          "Listen to the ambient sounds: Pay attention to the gentle rustling of leaves, the distant sound of footsteps, or the soft whisper of wind through the trees."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:34:10.3662279Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Campus\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the ordinary light: Look at the way the sunlight filters through the windows or skylights, and how it casts soft shadows on the floor.\\\",\\n    \\\"Observe the shapes: Note the rounded shapes of objects like chairs or tables, and the angular shapes of buildings or trees.\\\",\\n    \\\"Listen to the ambient sounds: Pay attention to the gentle rustling of leaves, the distant sound of footsteps, or the soft whisper of wind through the trees.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,38580,756,220,330,24080,788,2278,262,330,34193,279,19119,3100,25,9192,518,279,1616,279,39020,13406,1526,279,11030,476,1901,3923,2796,11,323,1246,432,56033,8413,34512,389,279,6422,10346,262,330,4121,13267,279,20816,25,7036,279,17976,20816,315,6171,1075,25904,476,12632,11,323,279,20314,20816,315,13702,476,12408,10346,262,330,38714,311,279,34188,10362,25,11471,6529,311,279,21700,23071,2718,315,10901,11,279,28727,5112,315,59702,11,476,279,8413,34855,315,9956,1526,279,12408,10040,220,5133,92],\"total_duration\":14783420600,\"load_duration\":35862900,\"prompt_eval_count\":165,\"prompt_eval_cached_count\":150,\"prompt_eval_duration\":709670000,\"eval_count\":113,\"eval_duration\":14018391000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 11046.34,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:34:21.4219467Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Ambient Light and Sounds\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the direction and intensity of the light coming from the street lamps.\\\",\\n    \\\"Observe the shapes and textures of the pavement and any reflective surfaces.\\\",\\n    \\\"Listen for ambient sounds such as traffic noise or wind moving through the street.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,92179,8658,323,44141,756,220,330,24080,788,2278,262,330,34193,279,5106,323,20612,315,279,3100,5001,504,279,8592,49452,10346,262,330,4121,13267,279,20816,323,29853,315,279,64342,323,894,51728,26431,10346,262,330,38714,369,34188,10362,1741,438,9442,11980,476,9956,7218,1526,279,8592,10040,220,5133,92],\"total_duration\":11014836700,\"load_duration\":88794400,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":145,\"prompt_eval_duration\":1003561000,\"eval_count\":71,\"eval_duration\":9824963000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 11980.23,
+      "card": {
+        "title": "Observing Light and Sound",
+        "steps": [
+          "Notice the direction and intensity of the light coming from the terrace windows.",
+          "Look around to identify any shapes or patterns in the light reflection on the surface.",
+          "Listen for any ambient sounds, such as wind or the soft rustle of leaves."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:34:33.4085936Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Sound\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the direction and intensity of the light coming from the terrace windows.\\\",\\n    \\\"Look around to identify any shapes or patterns in the light reflection on the surface.\\\",\\n    \\\"Listen for any ambient sounds, such as wind or the soft rustle of leaves.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,14594,756,220,330,24080,788,2278,262,330,34193,279,5106,323,20612,315,279,3100,5001,504,279,51478,11030,10346,262,330,10380,2163,311,10542,894,20816,476,12624,304,279,3100,21844,389,279,7329,10346,262,330,38714,369,894,34188,10362,11,1741,438,9956,476,279,8413,23071,273,315,10901,10040,220,5133,92],\"total_duration\":11958020600,\"load_duration\":56724000,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":800447000,\"eval_count\":74,\"eval_duration\":11017436000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 15905.09,
+      "card": {
+        "title": "Observing the Courtyard",
+        "steps": [
+          "Notice the light filtering through the tall grass and shrubs, creating soft patterns on the ground.",
+          "Look for shapes in the light—such as the edges of the courtyard, the outline of objects, or the way shadows fall.",
+          "Listen to the ambient sounds: the rustling of leaves, the distant sound of wind, or the soft tapping of rain (if it's raining)."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:34:49.3180877Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the light filtering through the tall grass and shrubs, creating soft patterns on the ground.\\\",\\n    \\\"Look for shapes in the light—such as the edges of the courtyard, the outline of objects, or the way shadows fall.\\\",\\n    \\\"Listen to the ambient sounds: the rustling of leaves, the distant sound of wind, or the soft tapping of rain (if it's raining).\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,6244,55536,756,220,330,24080,788,2278,262,330,34193,279,3100,29670,1526,279,16217,16359,323,14035,15738,11,6825,8413,12624,389,279,4910,10346,262,330,10380,369,20816,304,279,3100,2293,20805,438,279,12822,315,279,65285,11,279,21101,315,6171,11,476,279,1616,34512,4399,10346,262,330,38714,311,279,34188,10362,25,279,23071,2718,315,10901,11,279,28727,5112,315,9956,11,476,279,8413,52628,315,11174,320,333,432,594,83253,568,698,220,5133,92],\"total_duration\":15895809300,\"load_duration\":48759300,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":776878000,\"eval_count\":103,\"eval_duration\":15030142000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 8576.66,
+      "card": {
+        "title": "Observing the Campus",
+        "steps": [
+          "Notice the shapes of the buildings and their reflective surfaces.",
+          "Observe the colors of the sky and the light reflecting off the campus surfaces.",
+          "Listen to the ambient sounds of the campus, such as wind or distant voices."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:34:57.8896827Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Campus\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the shapes of the buildings and their reflective surfaces.\\\",\\n    \\\"Observe the colors of the sky and the light reflecting off the campus surfaces.\\\",\\n    \\\"Listen to the ambient sounds of the campus, such as wind or distant voices.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,38580,756,220,330,24080,788,2278,262,330,34193,279,20816,315,279,13702,323,862,51728,26431,10346,262,330,4121,13267,279,7987,315,279,12884,323,279,3100,41752,1007,279,15319,26431,10346,262,330,38714,311,279,34188,10362,315,279,15319,11,1741,438,9956,476,28727,23314,10040,220,5133,92],\"total_duration\":8559595200,\"load_duration\":18999100,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":744612000,\"eval_count\":69,\"eval_duration\":7778547000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 12507.87,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:35:10.4050202Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Street\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the light filtering through the windows of nearby buildings. Focus on how the light changes throughout the day.\\\",\\n    \\\"Look at the shapes of the street signs and pavement. Notice any patterns or textures.\\\",\\n    \\\"Listen to the sounds of the street—like the hum of traffic, the distant sounds of pedestrians, or the rustle of wind through the streetlights.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,6686,756,220,330,24080,788,2278,262,330,34193,279,3100,29670,1526,279,11030,315,14046,13702,13,25806,389,1246,279,3100,4344,6814,279,1899,10346,262,330,10380,518,279,20816,315,279,8592,11929,323,64342,13,24742,894,12624,476,29853,10346,262,330,38714,311,279,10362,315,279,8592,2293,4803,279,2784,315,9442,11,279,28727,10362,315,61458,11,476,279,23071,273,315,9956,1526,279,8592,13826,10040,220,5133,92],\"total_duration\":12478937900,\"load_duration\":50265000,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":146,\"prompt_eval_duration\":779125000,\"eval_count\":95,\"eval_duration\":11611033000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 14611.11,
+      "card": {
+        "title": "Observing the Terrace",
+        "steps": [
+          "Notice the light filtering through the glass of the terrace. It creates soft, diffused illumination.",
+          "Look around and observe the shapes of the objects in the room—like the chairs, tables, and plants.",
+          "Listen to the ambient sounds—such as the gentle rustling of leaves, the sound of wind, or the quiet hum of the environment."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:35:25.0310668Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the light filtering through the glass of the terrace. It creates soft, diffused illumination.\\\",\\n    \\\"Look around and observe the shapes of the objects in the room—like the chairs, tables, and plants.\\\",\\n    \\\"Listen to the ambient sounds—such as the gentle rustling of leaves, the sound of wind, or the quiet hum of the environment.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,79170,756,220,330,24080,788,2278,262,330,34193,279,3100,29670,1526,279,8991,315,279,51478,13,1084,11450,8413,11,3638,2591,75952,10346,262,330,10380,2163,323,22986,279,20816,315,279,6171,304,279,3054,2293,4803,279,25904,11,12632,11,323,10779,10346,262,330,38714,311,279,34188,10362,2293,20805,438,279,21700,23071,2718,315,10901,11,279,5112,315,9956,11,476,279,11340,2784,315,279,4573,10040,220,5133,92],\"total_duration\":14601847300,\"load_duration\":76980400,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":840909000,\"eval_count\":95,\"eval_duration\":13670152000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 17289.19,
+      "card": {
+        "title": "Observing Light and Sound in a Courtyard",
+        "steps": [
+          "Notice the direction and intensity of the light coming from the courtyard. It may be soft and diffused, or it may cast shadows depending on the time of day.",
+          "Look around and identify any shapes or patterns in the light, such as reflections on water, shadows on walls, or the way light bends around objects.",
+          "Listen to the ambient sounds around you—this could include wind, rustling leaves, or the soft hum of the environment. Focus on the texture and rhythm of the sounds."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:35:42.3154136Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Sound in a Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the direction and intensity of the light coming from the courtyard. It may be soft and diffused, or it may cast shadows depending on the time of day.\\\",\\n    \\\"Look around and identify any shapes or patterns in the light, such as reflections on water, shadows on walls, or the way light bends around objects.\\\",\\n    \\\"Listen to the ambient sounds around you—this could include wind, rustling leaves, or the soft hum of the environment. Focus on the texture and rhythm of the sounds.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,14594,304,264,6244,55536,756,220,330,24080,788,2278,262,330,34193,279,5106,323,20612,315,279,3100,5001,504,279,65285,13,1084,1231,387,8413,323,3638,2591,11,476,432,1231,6311,34512,11649,389,279,882,315,1899,10346,262,330,10380,2163,323,10542,894,20816,476,12624,304,279,3100,11,1741,438,62751,389,3015,11,34512,389,14285,11,476,279,1616,3100,92797,2163,6171,10346,262,330,38714,311,279,34188,10362,2163,498,2293,574,1410,2924,9956,11,23071,2718,10901,11,476,279,8413,2784,315,279,4573,13,25806,389,279,10434,323,36290,315,279,10362,10040,220,5133,92],\"total_duration\":17273345700,\"load_duration\":22102600,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":750188000,\"eval_count\":129,\"eval_duration\":16441481000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 11906.66,
+      "card": {
+        "title": "Observing the Campus",
+        "steps": [
+          "Notice the shapes of the buildings and the way they cast shadows on the ground.",
+          "Look for patterns in the light reflection on the pavement or water features.",
+          "Listen to the sounds of the campus, such as the rustling of leaves, distant footsteps, or the sound of wind."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Make a short outdoor observation activity, in English, from a safe stationary spot.\nUse only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.\nNo walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.\nNo phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.\nUse 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.\nDo not require the user to move or find anything. The duration is approximate, not something to measure.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:35:54.2345642Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing the Campus\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the shapes of the buildings and the way they cast shadows on the ground.\\\",\\n    \\\"Look for patterns in the light reflection on the pavement or water features.\\\",\\n    \\\"Listen to the sounds of the campus, such as the rustling of leaves, distant footsteps, or the sound of wind.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,8078,264,2805,15789,21930,5702,11,304,6364,11,504,264,6092,52635,7702,624,10253,1172,279,4091,39090,11,448,902,24335,911,29305,11,10779,11,9104,476,7096,624,2753,11435,11291,11,26638,19241,11,29508,11,12822,11,30587,11,25895,11,10158,11,39621,11,3607,476,3015,624,2753,4540,990,11,14633,11,7249,11,8388,11,14849,11,44522,11,11469,476,23491,13,2308,6457,9462,624,10253,220,16,311,220,18,2805,11,14175,7354,369,61364,19119,3100,11,20816,11,26138,476,34188,10362,624,5404,537,1373,279,1196,311,3271,476,1477,4113,13,576,8090,374,44868,11,537,2494,311,6629,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,279,38580,756,220,330,24080,788,2278,262,330,34193,279,20816,315,279,13702,323,279,1616,807,6311,34512,389,279,4910,10346,262,330,10380,369,12624,304,279,3100,21844,389,279,64342,476,3015,4419,10346,262,330,38714,311,279,10362,315,279,15319,11,1741,438,279,23071,2718,315,10901,11,28727,59702,11,476,279,5112,315,9956,10040,220,5133,92],\"total_duration\":11895006900,\"load_duration\":140326100,\"prompt_eval_count\":166,\"prompt_eval_cached_count\":151,\"prompt_eval_duration\":866890000,\"eval_count\":81,\"eval_duration\":10859810000}",
+      "rawTruncated": false
+    }
+  ],
+  "baseline": [
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    }
+  ]
+}

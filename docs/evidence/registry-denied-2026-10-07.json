@@ -1,0 +1,8 @@
+{
+  "checkedAt": "2026-10-06T19:41:31.164Z",
+  "localEndpoint": "http://127.0.0.1:11434/api/pull",
+  "request": { "model": "qwen3:1.7b", "stream": false },
+  "status": 500,
+  "error": "pull model manifest: Get \"https://registry.ollama.ai/v2/library/qwen3/manifests/1.7b\": dial tcp 104.18.17.170:443: connectex: An attempt was made to access a socket in a way forbidden by its access permissions.",
+  "scope": "Project runtime restarted under network-restricted execution after downloading weights. No physical Wi-Fi-disconnection test or machine-wide network-setting change."
+}

@@ -17,12 +17,13 @@ const format = {
   },
 };
 
-const system = `Make a short outdoor observation activity, in English, from a safe stationary spot.
-Use only the selected surroundings, with no assumption about wildlife, plants, weather or equipment.
-No walking routes, crossing roads, climbing, edges, touching, collecting, exercise, strangers, food or water.
-No phone use, recording, photos, notes, tracking, timers, lists or purchases. No medical advice.
-Use 1 to 3 short, concrete steps for noticing ordinary light, shapes, colours or ambient sounds.
-Do not require the user to move or find anything. The duration is approximate, not something to measure.
+const system = `Create a brief English outdoor pause. The person is already in a safe stationary spot.
+The actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.
+Give 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,
+or any ambient sound already audible. Refer to whatever is present, without naming imagined examples.
+Every step must begin with "If" and make the observation optional when the sensation is absent.
+Keep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.
+Avoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.
 Return only JSON with title and steps. Do not add duration or surroundings.`;
 
 const disallowed = /\b(cross|climb|jump|run|jog|swim|touch|pick|collect|eat|drink|taste|photograph|record|write|track|timer|camera|phone|stranger|roof|ledge|traffic|road|purchase|buy)\b|\b(take|capture)\s+(a\s+)?(photo|picture)|\b(talk|speak|ask)\s+(to\s+)?(someone|anyone|a\s+person)/i;
@@ -83,8 +84,12 @@ export function createGenerator(options: { fetchImpl?: typeof fetch; model?: str
         response = await fetchImpl('http://127.0.0.1:11434/api/generate', {
           method: 'POST', signal: controller.signal, headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ model: options.model ?? 'qwen3:1.7b', stream: false, think: false,
-            system, prompt: `${request.duration} minutes, surroundings: ${request.surroundings}.`,
-            format, options: { num_predict: 256, temperature: 0.7 }, keep_alive: '10m' }),
+            system, prompt: `Write an activity for about ${request.duration} minutes outdoors in ${request.surroundings}.
+This is not a scene description. You cannot see this place. Never invent objects or weather.
+Each step MUST start with "If". Use a condition about whatever is visible or audible, then one simple observation.
+For example: "If any outline catches your eye, notice where it curves or straightens from your stationary spot."
+Vary the attention cue, not the imagined scenery. The person can skip any step and simply pause.`,
+            format, options: { num_predict: 256, temperature: 0.2, seed: 42 }, keep_alive: '10m' }),
         });
       } catch {
         if (controller.signal.aborted) throw controller.signal.reason;
@@ -100,7 +105,8 @@ export function createGenerator(options: { fetchImpl?: typeof fetch; model?: str
           !('response' in outer) || typeof outer.response !== 'string' ||
           ('done_reason' in outer && outer.done_reason === 'length')) throw invalidOutput();
         const activity = parseModelActivity(JSON.parse(outer.response));
-        if ([activity.title, ...activity.steps].some(text => disallowed.test(text))) throw invalidOutput();
+        if (activity.steps.some(step => !/^If\b/.test(step)) ||
+          [activity.title, ...activity.steps].some(text => disallowed.test(text))) throw invalidOutput();
         return makeCard(request, activity);
       } catch (error) {
         if (controller.signal.aborted) throw controller.signal.reason;

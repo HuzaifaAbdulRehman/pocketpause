@@ -1,0 +1,943 @@
+{
+  "checkedAt": "2026-10-06T19:41:35.719Z",
+  "model": {
+    "name": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "bytes": 1359293444,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "2.0B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "version": "0.40.0"
+  },
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "release": "10.0.19045",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 15.9
+  },
+  "coldBefore": {
+    "models": []
+  },
+  "trials": [
+    {
+      "phase": "cold",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 23134.8,
+      "card": {
+        "title": "Observing Street Scene",
+        "steps": [
+          "Note the contrast between the bright pavement and the darker shadows cast by buildings.",
+          "Observe the way light filters through the gaps in the street signs.",
+          "Notice the movement of people walking in opposite directions."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:41:58.8281539Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Street Scene\\\",\\n  \\\"steps\\\": [\\n    \\\"Note the contrast between the bright pavement and the darker shadows cast by buildings.\\\",\\n    \\\"Observe the way light filters through the gaps in the street signs.\\\",\\n    \\\"Notice the movement of people walking in opposite directions.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,6686,17494,756,220,330,24080,788,2278,262,330,9112,279,12872,1948,279,9906,64342,323,279,39030,34512,6311,553,13702,10346,262,330,4121,13267,279,1616,3100,13406,1526,279,32151,304,279,8592,11929,10346,262,330,34193,279,7203,315,1251,11435,304,14002,17961,10040,220,5133,92],\"total_duration\":23095697600,\"load_duration\":8040710800,\"prompt_eval_count\":163,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":5056650000,\"eval_count\":65,\"eval_duration\":9965716000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 10895.14,
+      "card": {
+        "title": "Observation of Street Scene",
+        "steps": [
+          "Note the contrast between the bright pavement and the darker shadows cast by streetlights.",
+          "Observe the movement of people walking along the street, noting the varying levels of brightness and shadows.",
+          "Notice the reflections on the wet pavement, highlighting the interplay of light and surface texture."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:09.7519663Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation of Street Scene\\\",\\n  \\\"steps\\\": [\\n    \\\"Note the contrast between the bright pavement and the darker shadows cast by streetlights.\\\",\\n    \\\"Observe the movement of people walking along the street, noting the varying levels of brightness and shadows.\\\",\\n    \\\"Notice the reflections on the wet pavement, highlighting the interplay of light and surface texture.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,315,6686,17494,756,220,330,24080,788,2278,262,330,9112,279,12872,1948,279,9906,64342,323,279,39030,34512,6311,553,8592,13826,10346,262,330,4121,13267,279,7203,315,1251,11435,3156,279,8592,11,26305,279,28765,5866,315,32206,323,34512,10346,262,330,34193,279,62751,389,279,14401,64342,11,38586,279,946,1363,315,3100,323,7329,10434,10040,220,5133,92],\"total_duration\":10880656500,\"load_duration\":27996300,\"prompt_eval_count\":163,\"prompt_eval_cached_count\":162,\"prompt_eval_duration\":149337000,\"eval_count\":81,\"eval_duration\":10683621000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 10288.88,
+      "card": {
+        "title": "Observation on Terrace",
+        "steps": [
+          "Notice the soft glow of sunlight filtering through the tall green plants.",
+          "Observe the subtle contrast between the warm golden tones of the light and the cool blue tones of the surrounding foliage.",
+          "Feel the gentle breeze moving across the terrace, carrying the faint scent of fresh earth and blooming flowers."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:20.0679232Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation on Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the soft glow of sunlight filtering through the tall green plants.\\\",\\n    \\\"Observe the subtle contrast between the warm golden tones of the light and the cool blue tones of the surrounding foliage.\\\",\\n    \\\"Feel the gentle breeze moving across the terrace, carrying the faint scent of fresh earth and blooming flowers.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,389,79170,756,220,330,24080,788,2278,262,330,34193,279,8413,35966,315,39020,29670,1526,279,16217,6176,10779,10346,262,330,4121,13267,279,26447,12872,1948,279,8205,20748,41976,315,279,3100,323,279,7010,6303,41976,315,279,14590,79005,10346,262,330,32927,279,21700,45285,7218,3941,279,51478,11,15331,279,37578,40366,315,7722,9393,323,14211,17765,19281,10040,220,5133,92],\"total_duration\":10268173600,\"load_duration\":108376400,\"prompt_eval_count\":163,\"prompt_eval_cached_count\":148,\"prompt_eval_duration\":740168000,\"eval_count\":83,\"eval_duration\":9395461000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 8223.87,
+      "card": {
+        "title": "Observing Courtyard",
+        "steps": [
+          "Observe the interplay of light and shadow across the courtyard.",
+          "Note the movement of air and the subtle changes in temperature.",
+          "Focus on the way colors of the surrounding walls and floor contrast with each other."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:28.2955893Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the interplay of light and shadow across the courtyard.\\\",\\n    \\\"Note the movement of air and the subtle changes in temperature.\\\",\\n    \\\"Focus on the way colors of the surrounding walls and floor contrast with each other.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,6244,55536,756,220,330,24080,788,2278,262,330,4121,13267,279,946,1363,315,3100,323,12455,3941,279,65285,10346,262,330,9112,279,7203,315,3720,323,279,26447,4344,304,9315,10346,262,330,13819,389,279,1616,7987,315,279,14590,14285,323,6422,12872,448,1817,1008,10040,220,5133,92],\"total_duration\":8214692400,\"load_duration\":19000900,\"prompt_eval_count\":163,\"prompt_eval_cached_count\":148,\"prompt_eval_duration\":747211000,\"eval_count\":67,\"eval_duration\":7434294000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 6979.75,
+      "card": {
+        "title": "Campus Observation",
+        "steps": [
+          "Observe the play of light on the campus surfaces.",
+          "Note the movement of shadows cast by tall buildings.",
+          "Watch the interaction of light and color on the pavement."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "5 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:35.2749516Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Campus Observation\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the play of light on the campus surfaces.\\\",\\n    \\\"Note the movement of shadows cast by tall buildings.\\\",\\n    \\\"Watch the interaction of light and color on the pavement.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,20,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,33855,355,86429,756,220,330,24080,788,2278,262,330,4121,13267,279,1486,315,3100,389,279,15319,26431,10346,262,330,9112,279,7203,315,34512,6311,553,16217,13702,10346,262,330,14247,279,16230,315,3100,323,1894,389,279,64342,10040,220,5133,92],\"total_duration\":6966753400,\"load_duration\":20706800,\"prompt_eval_count\":163,\"prompt_eval_cached_count\":148,\"prompt_eval_duration\":593727000,\"eval_count\":57,\"eval_duration\":6334890000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 9782.07,
+      "card": {
+        "title": "Observation of Street Environment",
+        "steps": [
+          "Observe the contrast between the bright pavement and the darker surrounding buildings.",
+          "Note the movement of shadows cast by the streetlights across the surface.",
+          "Focus on the way light reflects off the wet pavement, creating a shimmering effect."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:45.0586593Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation of Street Environment\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the contrast between the bright pavement and the darker surrounding buildings.\\\",\\n    \\\"Note the movement of shadows cast by the streetlights across the surface.\\\",\\n    \\\"Focus on the way light reflects off the wet pavement, creating a shimmering effect.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,315,6686,11586,756,220,330,24080,788,2278,262,330,4121,13267,279,12872,1948,279,9906,64342,323,279,39030,14590,13702,10346,262,330,9112,279,7203,315,34512,6311,553,279,8592,13826,3941,279,7329,10346,262,330,13819,389,279,1616,3100,25963,1007,279,14401,64342,11,6825,264,75361,287,2456,10040,220,5133,92],\"total_duration\":9767525600,\"load_duration\":33750800,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":143,\"prompt_eval_duration\":850200000,\"eval_count\":72,\"eval_duration\":8858615000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 9926.15,
+      "card": {
+        "title": "Terrace Observation",
+        "steps": [
+          "Observe the play of light and shadow across the terrace surface.",
+          "Note the subtle changes in color and texture of the ambient light.",
+          "Watch the movement of air and breeze through the open spaces."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:42:54.9803099Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Terrace Observation\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the play of light and shadow across the terrace surface.\\\",\\n    \\\"Note the subtle changes in color and texture of the ambient light.\\\",\\n    \\\"Watch the movement of air and breeze through the open spaces.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,51402,578,86429,756,220,330,24080,788,2278,262,330,4121,13267,279,1486,315,3100,323,12455,3941,279,51478,7329,10346,262,330,9112,279,26447,4344,304,1894,323,10434,315,279,34188,3100,10346,262,330,14247,279,7203,315,3720,323,45285,1526,279,1787,12621,10040,220,5133,92],\"total_duration\":9901485900,\"load_duration\":35808700,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":735610000,\"eval_count\":63,\"eval_duration\":9095785000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 13548.6,
+      "card": {
+        "title": "Courtyard Observation",
+        "steps": [
+          "Observe the interplay of light and shadow across the courtyard.",
+          "Note the contrast between the warm, golden hues of the morning sun and the cooler, darker tones of the surrounding structures.",
+          "Focus on the way the light filters through the open spaces, creating soft, diffused patterns on the ground."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:43:08.4966364Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Courtyard Observation\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the interplay of light and shadow across the courtyard.\\\",\\n    \\\"Note the contrast between the warm, golden hues of the morning sun and the cooler, darker tones of the surrounding structures.\\\",\\n    \\\"Focus on the way the light filters through the open spaces, creating soft, diffused patterns on the ground.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,43249,55536,86429,756,220,330,24080,788,2278,262,330,4121,13267,279,946,1363,315,3100,323,12455,3941,279,65285,10346,262,330,9112,279,12872,1948,279,8205,11,20748,81657,315,279,6556,7015,323,279,35821,11,39030,41976,315,279,14590,14389,10346,262,330,13819,389,279,1616,279,3100,13406,1526,279,1787,12621,11,6825,8413,11,3638,2591,12624,389,279,4910,10040,220,5133,92],\"total_duration\":13465466200,\"load_duration\":388518400,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":801271000,\"eval_count\":84,\"eval_duration\":12243969000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 10093.16,
+      "card": {
+        "title": "Observing Campus",
+        "steps": [
+          "Notice the soft glow of the sun casting light on the grass.",
+          "Observe the gentle rustle of leaves in the wind.",
+          "Feel the subtle contrast between the bright sunlight and the darker shadows."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "10 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:43:18.6111211Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Campus\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the soft glow of the sun casting light on the grass.\\\",\\n    \\\"Observe the gentle rustle of leaves in the wind.\\\",\\n    \\\"Feel the subtle contrast between the bright sunlight and the darker shadows.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,15,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,38580,756,220,330,24080,788,2278,262,330,34193,279,8413,35966,315,279,7015,24172,3100,389,279,16359,10346,262,330,4121,13267,279,21700,23071,273,315,10901,304,279,9956,10346,262,330,32927,279,26447,12872,1948,279,9906,39020,323,279,39030,34512,10040,220,5133,92],\"total_duration\":10043153500,\"load_duration\":124460500,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":792114000,\"eval_count\":63,\"eval_duration\":9018612000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 9315.65,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: street.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:43:27.9940502Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation of Street Ambience\\\",\\n  \\\"steps\\\": [\\n    \\\"Note the rhythm of footsteps on the pavement.\\\",\\n    \\\"Observe the reflection of light on the wet surface.\\\",\\n    \\\"Track the movement of shadows cast by passing pedestrians.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,8592,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,315,6686,19833,1835,756,220,330,24080,788,2278,262,330,9112,279,36290,315,59702,389,279,64342,10346,262,330,4121,13267,279,21844,315,3100,389,279,14401,7329,10346,262,330,15667,279,7203,315,34512,6311,553,12299,61458,10040,220,5133,92],\"total_duration\":9303721000,\"load_duration\":52798900,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":144,\"prompt_eval_duration\":991227000,\"eval_count\":58,\"eval_duration\":8241457000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 13483.91,
+      "card": {
+        "title": "Observation on Terrace",
+        "steps": [
+          "Notice the soft glow of sunlight filtering through the tall green leaves of the nearby tree.",
+          "Observe the subtle contrast between the warm amber of the sunset and the cool blue of the sky.",
+          "Listen to the gentle rustling of the leaves as the wind moves through the terrace."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: terrace.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:43:41.4765495Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation on Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"Notice the soft glow of sunlight filtering through the tall green leaves of the nearby tree.\\\",\\n    \\\"Observe the subtle contrast between the warm amber of the sunset and the cool blue of the sky.\\\",\\n    \\\"Listen to the gentle rustling of the leaves as the wind moves through the terrace.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,51478,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,389,79170,756,220,330,24080,788,2278,262,330,34193,279,8413,35966,315,39020,29670,1526,279,16217,6176,10901,315,279,14046,4916,10346,262,330,4121,13267,279,26447,12872,1948,279,8205,67605,315,279,42984,323,279,7010,6303,315,279,12884,10346,262,330,38714,311,279,21700,23071,2718,315,279,10901,438,279,9956,10797,1526,279,51478,10040,220,5133,92],\"total_duration\":13469022800,\"load_duration\":25890500,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":829895000,\"eval_count\":80,\"eval_duration\":12572847000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 12176.1,
+      "card": {
+        "title": "Observation in Courtyard",
+        "steps": [
+          "Observe the play of light and shadow on the floor as the sun moves across the courtyard.",
+          "Note the way the breeze moves through the air, carrying faint sounds of rustling leaves and distant chatter.",
+          "Watch the movement of light and dark outlines as the sunlight filters through the tall plants and trees in the courtyard."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: courtyard.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:43:53.6557265Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation in Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"Observe the play of light and shadow on the floor as the sun moves across the courtyard.\\\",\\n    \\\"Note the way the breeze moves through the air, carrying faint sounds of rustling leaves and distant chatter.\\\",\\n    \\\"Watch the movement of light and dark outlines as the sunlight filters through the tall plants and trees in the courtyard.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,65285,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,304,6244,55536,756,220,330,24080,788,2278,262,330,4121,13267,279,1486,315,3100,323,12455,389,279,6422,438,279,7015,10797,3941,279,65285,10346,262,330,9112,279,1616,279,45285,10797,1526,279,3720,11,15331,37578,10362,315,23071,2718,10901,323,28727,69357,10346,262,330,14247,279,7203,315,3100,323,6319,49629,438,279,39020,13406,1526,279,16217,10779,323,12408,304,279,65285,10040,220,5133,92],\"total_duration\":12157249900,\"load_duration\":76465600,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":864534000,\"eval_count\":89,\"eval_duration\":11185578000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 7972.97,
+      "card": {
+        "title": "Observation of Campus Ambience",
+        "steps": [
+          "Note the movement of students walking around the campus.",
+          "Observe the contrast between the bright blue sky and the green grass.",
+          "Listen to the ambient sound of distant conversations and the rustling of leaves."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "15 minutes, surroundings: campus.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.7
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T19:44:01.6405872Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observation of Campus Ambience\\\",\\n  \\\"steps\\\": [\\n    \\\"Note the movement of students walking around the campus.\\\",\\n    \\\"Observe the contrast between the bright blue sky and the green grass.\\\",\\n    \\\"Listen to the ambient sound of distant conversations and the rustling of leaves.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,16,20,4420,11,39090,25,15319,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,367,315,38580,19833,1835,756,220,330,24080,788,2278,262,330,9112,279,7203,315,4143,11435,2163,279,15319,10346,262,330,4121,13267,279,12872,1948,279,9906,6303,12884,323,279,6176,16359,10346,262,330,38714,311,279,34188,5112,315,28727,20959,323,279,23071,2718,315,10901,10040,220,5133,92],\"total_duration\":7960327200,\"load_duration\":42319400,\"prompt_eval_count\":164,\"prompt_eval_cached_count\":149,\"prompt_eval_duration\":691773000,\"eval_count\":67,\"eval_duration\":7206754000}",
+      "rawTruncated": false
+    }
+  ],
+  "baseline": [
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    }
+  ]
+}

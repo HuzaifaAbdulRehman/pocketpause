@@ -1,0 +1,42 @@
+import { chromium } from 'playwright';
+import { mkdir, readFile } from 'node:fs/promises';
+import { createAppServer } from '../src/server.ts';
+import { createGenerator } from '../src/ollama.ts';
+import { fileURLToPath } from 'node:url';
+const root = fileURLToPath(new URL('../', import.meta.url));
+process.env.PLAYWRIGHT_BROWSERS_PATH = fileURLToPath(new URL('../.tools/browsers/', import.meta.url));
+const output = fileURLToPath(new URL('../.tools/smoke/', import.meta.url));
+await mkdir(output, { recursive: true });
+const server = createAppServer({ generate: createGenerator({ model: process.env.POCKETPAUSE_MODEL }), distDir: `${root}dist` });
+await new Promise((resolve, reject) => { server.once('error', reject); server.listen(0, '127.0.0.1', resolve); });
+let browser;
+let context;
+try {
+  browser = await chromium.launch();
+  context = await browser.newContext({ viewport: { width: 1100, height: 900 }, recordVideo: { dir: output } });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto(`http://127.0.0.1:${server.address().port}`);
+  await page.getByRole('button', { name: 'Generate activity' }).click();
+  await page.getByRole('button', { name: 'Save activity' }).waitFor({ timeout: 125000 });
+  const title = await page.locator('article h2').innerText();
+  await page.screenshot({ path: `${output}/real-flow.png`, fullPage: true });
+  const downloading = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save activity' }).click();
+  const download = await downloading;
+  await download.saveAs(`${output}/real-card.txt`);
+  const text = await readFile(`${output}/real-card.txt`, 'utf8');
+  if (!text.includes(title) || !text.includes('5 minutes · courtyard') || !text.includes('Stay away from traffic and edges.')) throw new Error('Downloaded card does not match the real activity.');
+  if (errors.length) throw new Error(errors.join('\n'));
+  console.log(JSON.stringify({ actualTitle: title, download: 'real-card.txt', screenshot: 'real-flow.png', browserErrors: errors, output }));
+  await context.close();
+  context = undefined;
+  const video = await page.video().path();
+  console.log(`Actual browser demo video: ${video}`);
+} finally {
+  await context?.close();
+  await browser?.close();
+  server.closeAllConnections();
+  await new Promise(resolve => server.close(resolve));
+}
