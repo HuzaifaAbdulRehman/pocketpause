@@ -1,7 +1,8 @@
 # PocketPause design
 
 Written 6 October 2026. Huzaifa approved this written spec on 6 October.
-The implementation plan awaits review. No application code or model is installed.
+The implementation plan and native execution were approved on 6 October.
+Implementation has begun; model performance remains unmeasured.
 
 ## Purpose and finish line
 
@@ -111,9 +112,9 @@ submit, spend money or change account connections without approval.
 
 ## Approval state
 
-The idea, in-chat design and written spec are approved. Next: Huzaifa reviews
-the implementation plan and selects its execution method. Product code,
-runtime installation and dependency installation wait for that review.
+The idea, written spec and implementation plan are approved. Huzaifa selected
+native execution on 6 October. Publication, pushing, spending and account
+changes still require separate permission.
 
 ## Existing sources
 

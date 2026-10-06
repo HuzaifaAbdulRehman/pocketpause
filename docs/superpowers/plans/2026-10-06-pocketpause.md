@@ -14,7 +14,8 @@ Tech stack: Node 24.13.0, TypeScript, React, Vite, Node's test runner and
 Playwright for browser checks. No Express, database or hosted API.
 
 Spec: [approved design](../specs/2026-10-06-pocketpause-design.md).
-Huzaifa approved the written spec on 6 October 2026. This plan awaits review.
+Huzaifa approved the spec and this plan on 6 October 2026, choosing native
+execution. Work is on build/pocketpause; main remains unchanged.
 
 ## Global constraints
 
@@ -30,7 +31,7 @@ Huzaifa approved the written spec on 6 October 2026. This plan awaits review.
 - Complete before 12 October 2026 at 11:59 AM PKT.
 - Use meaningful local commits, subjects at most 50 characters, no attribution
   trailers. Humanize prose and run the oss checkpoint for each commit.
-- Proposed project-code licence: MIT. Review this choice with the plan.
+- Approved project-code licence: MIT.
   Third-party software and model licences remain separate.
 - Resolve exact supported dependency versions before installation, record
   inspected metadata, pin them in package.json and commit package-lock.json.
@@ -260,11 +261,10 @@ Consumes: measured evidence from Tasks 1-5 and the official DEV template.
 
 ## Plan review and execution
 
-Spec approval is recorded. No task above has been executed yet.
-Recommended method: native execution in this session, because the six
-tasks share simple contracts and can be checked with focused tests.
-Huzaifa must review this plan and choose native or subagent-driven
-execution before implementation starts.
+Spec and plan approval are recorded. Huzaifa selected native execution:
+implementation in this session with one fresh whole-branch review at the end.
+Tasks are tracked in the plan-specific local ledger; this file does not
+claim that the remaining software or measurements are complete.
 
 ## Sources checked for this plan
 
