@@ -1,0 +1,96 @@
+---
+title: "PocketPause: one local AI card, then outside"
+published: false
+tags: devchallenge, hf26challenge
+---
+
+Prepared for [Week 1: Touch Grass](https://dev.to/challenges/hacktoberfest-week1-2026-10-05).
+This draft is not published. Public code and video links still need to be added.
+
+## What I Built
+
+PocketPause offers one short outdoor observation instead of another feed.
+Choose roughly 5, 10 or 15 minutes and a broad setting: street, terrace,
+courtyard or campus. A local open-weight model writes a small card. Read it,
+save the plain text if useful, then put the screen away.
+
+The idea is for someone who wants a pause without having to record birds,
+take photographs or maintain a journal. There is no GPS, account or upload.
+You choose the actual safe, permitted spot. The app cannot see it.
+
+That last constraint shaped the project. The instructions use conditional
+observations, so an absent sound or sight can be skipped. The time is a
+loose suggestion, not a timer. A terrace selection never grants roof access.
+
+## Demo
+
+Public video URL: pending publication approval.
+
+An actual local-model demonstration is already recorded in
+docs/evidence/real-demo.webm. It shows generation, the resulting card and a
+plain-text download. The accompanying screenshot and downloaded card are
+in the same folder. This is a desktop software demonstration, not footage
+of someone trying the activity outside.
+
+Outdoor trial: pending. No claim of improved well-being or reduced screen
+time has been measured.
+
+## Code
+
+Public repository URL: pending publication approval.
+
+PocketPause was created locally on 6 October 2026, within the Week 1 window.
+The repository includes tests, all raw measurement runs, setup instructions
+and an MIT licence. Model weights, browser binaries and runtime profiles
+are excluded from Git.
+
+## How I Built It
+
+React handles the two selectors, loading/error states and card download.
+A small Node server validates choices and calls Ollama on loopback.
+Qwen3 supplies the actual activity text, using the qwen3:1.7b tag in
+non-thinking mode. It is the generation engine, not just a coding aid.
+
+The model returns constrained JSON, but that is only the first boundary.
+The server checks types and lengths, rejects extra fields, applies phrase
+checks and requires each step to begin with If. It renders model text as
+text, never executable HTML. One request runs at a time, with a two-minute
+deadline. A failed generation shows an error rather than a disguised fixed card.
+
+The first real measurements were disappointing. In the initial warm run,
+only 9 of 12 outputs passed validation. Some accepted cards still invented
+glass walls, fencing or wet pavement. An unknown-scene prompt alone did
+not solve it: the second run reached 11 valid outputs, but still invented
+details.
+
+The final prompt repeats the conditional instruction in the user request,
+uses an outline example, lowers temperature to 0.2 and fixes seed 42.
+All 12 warm combinations passed validation and a desk usability review.
+They took 12.1–16.5 seconds on an i5-8350U laptop with 15.9 GiB RAM; the
+cold request took 27.6 seconds. These are a small pilot, not a reliability claim.
+
+The fixed non-AI baseline also supplies 12 usable cards and is more
+consistent. The model often repeats the outline example and adapts little
+to place or duration. I would not claim AI made this a better outdoor
+experience on the evidence available.
+
+## Why Does Open Innovation Matter?
+
+The open weights make the generation engine inspectable and replaceable.
+Once the weights are downloaded, the activity can be generated locally
+without sending a prompt to a hosted inference API. The project successfully
+generated after its model-registry connection was blocked in a restricted
+environment. Wi-Fi was not physically disconnected.
+
+Qwen's upstream weights use Apache-2.0, Ollama uses MIT, and the app's code
+is MIT. The measured model identifier and digest are recorded, including a
+discrepancy: local metadata labels parameter size 2.0B while the upstream
+card names 1.7B. Another local model can be selected, but is unmeasured.
+
+A closed hosted API would make this implementation depend on network
+availability and a provider account during generation. The local approach
+avoids those dependencies. It does not eliminate setup cost: the weights
+alone are about 1.36 GB, and the runtime uses laptop resources.
+
+The part I would test next is the simplest one: whether a person finds
+one of these cards worth putting the screen away for. That remains untested.
