@@ -1,7 +1,7 @@
 # PocketPause design
 
-Written 6 October 2026. Conversational design approved; this written spec
-awaits review. No application code or model has been installed.
+Written 6 October 2026. Huzaifa approved this written spec on 6 October.
+The implementation plan awaits review. No application code or model is installed.
 
 ## Purpose and finish line
 
@@ -111,9 +111,9 @@ submit, spend money or change account connections without approval.
 
 ## Approval state
 
-The idea and in-chat design are approved. Next: Huzaifa reviews this spec.
-Written-spec approval permits an implementation plan; he then reviews
-that plan and selects the execution method before product implementation.
+The idea, in-chat design and written spec are approved. Next: Huzaifa reviews
+the implementation plan and selects its execution method. Product code,
+runtime installation and dependency installation wait for that review.
 
 ## Existing sources
 
