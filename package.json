@@ -5,7 +5,7 @@
   "type": "module",
   "engines": { "node": ">=24.13.0 <25" },
   "scripts": {
-    "test": "node --test tests/domain.test.ts",
+    "test": "node --test tests/domain.test.ts tests/ollama.test.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
