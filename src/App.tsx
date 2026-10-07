@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { FormEvent } from 'react';
 import { formatCard, makeCard, parseModelActivity, parseRequest, SAFETY_REMINDER } from './domain.ts';
 import type { ActivityCard, Duration, Surroundings } from './domain.ts';
@@ -11,6 +11,11 @@ export default function App() {
   const [error, setError] = useState('');
   const [saved, setSaved] = useState(false);
   const inFlight = useRef(false);
+  const cardHeading = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (card) cardHeading.current?.focus();
+  }, [card]);
 
   async function generate(event: FormEvent) {
     event.preventDefault();
@@ -32,6 +37,7 @@ export default function App() {
       if (body.source !== 'local-ai') throw new Error('Invalid card source');
       setCard(makeCard(parseRequest({ duration: body.duration, surroundings: body.surroundings }),
         parseModelActivity({ title: body.title, steps: body.steps })));
+      setSaved(false);
     } catch {
       setError('Could not reach the local server or read its response. Check that it is running, then try again.');
     } finally {
@@ -81,7 +87,7 @@ export default function App() {
         <p className="eyebrow">02 / Take this with you</p>
         {card ? <article>
           <p className="context">{card.duration} minutes · {card.surroundings}</p>
-          <h2>{card.title}</h2>
+          <h2 ref={cardHeading} tabIndex={-1}>{card.title}</h2>
           <ol>{card.steps.map((step, index) => <li key={index}>{step}</li>)}</ol>
           <p className="safety">{SAFETY_REMINDER}</p>
           <button className="secondary" onClick={save}>Save activity <span aria-hidden="true">↓</span></button>
@@ -91,7 +97,7 @@ export default function App() {
           <h2>No checklist. Just a pause.</h2>
           <p>Your activity will appear here. No photos, recordings or tracking needed.</p>
         </div>}
-        <p role="status" className="status">{busy ? 'Working with your local model…' : saved ? 'Saved. Read your activity, then put the screen away.' : ''}</p>
+        <p role="status" className="status">{busy ? 'Working with your local model…' : saved ? 'Saved. Read your activity, then put the screen away.' : card ? error ? 'Your previous activity is still available to save.' : 'Ready. Read your activity, then put the screen away.' : ''}</p>
         {error && <p role="alert" className="error">{error}</p>}
       </section>
     </div>

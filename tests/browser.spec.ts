@@ -63,6 +63,7 @@ test('failure preserves the old card and its selected context; retry succeeds', 
   await page.getByRole('button', { name: 'Generate activity' }).click();
   await expect(page.getByRole('alert')).toContainText('took too long');
   await expect(page.getByText('5 minutes · courtyard', { exact: true })).toBeVisible();
+  await expect(page.getByRole('status')).toContainText('Your previous activity is still available to save.');
   await expect(page.getByRole('button', { name: 'Save activity' })).toBeEnabled();
   const download = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Save activity' }).click();
@@ -98,4 +99,48 @@ test('network failure and narrow screen remain usable', async ({ page }) => {
     expect(rect!.x + rect!.width).toBeLessThanOrEqual(320);
   }
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+for (const width of [320, 390, 1100]) {
+  test(`reveals and focuses a ready activity at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 844 });
+    await page.route('**/api/activity', route => route.fulfill({ json: card }));
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Generate activity' }).focus();
+    await page.keyboard.press('Enter');
+    const heading = page.getByRole('heading', { name: 'Notice light' });
+    await expect(heading).toBeFocused();
+    await expect(page.getByRole('status')).toContainText('Ready');
+    const rect = await heading.boundingBox();
+    expect(rect!.y).toBeGreaterThanOrEqual(0);
+    expect(rect!.y + rect!.height).toBeLessThanOrEqual(844);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Save activity' })).toBeFocused();
+  });
+}
+
+test('does not mark a replacement card saved when the old card was downloaded during generation', async ({ page }) => {
+  let release!: () => void;
+  const waiting = new Promise<void>(resolve => { release = resolve; });
+  let calls = 0;
+  await page.route('**/api/activity', async route => {
+    if (++calls === 1) await route.fulfill({ json: card });
+    else {
+      await waiting;
+      await route.fulfill({ json: { ...card, title: 'Listen nearby', steps: ['If a sound is audible, notice its rhythm.'] } });
+    }
+  });
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Generate activity' }).click();
+  await expect(page.getByRole('heading', { name: 'Notice light' })).toBeVisible();
+  await page.getByRole('button', { name: 'Generate activity' }).click();
+  await expect(page.getByRole('button', { name: 'Generating…' })).toBeDisabled();
+  const download = page.waitForEvent('download');
+  await page.getByRole('button', { name: 'Save activity' }).click();
+  expect(await readFile((await (await download).path())!, 'utf8')).toContain('Notice light');
+  release();
+  await expect(page.getByRole('status')).toContainText('Ready');
+  await expect(page.getByRole('status')).not.toContainText('Saved');
+  await expect(page.getByRole('heading', { name: 'Listen nearby' })).toBeFocused();
 });
