@@ -5,6 +5,8 @@ generation with the real local model, display, then Save activity.
 It is an automated desktop capture, not an outdoor trial. The corresponding
 [screenshot](evidence/real-flow.png) and [download](evidence/real-card.txt)
 are preserved. The video has no narration and has not been uploaded.
+The captured card uses the cue contract: the model selects an approved cue and
+the app renders the conditional instruction locally.
 The final capture holds the generated card and saved confirmation for at
 least four seconds each. A real-model regression checks those intervals and
 that the saved confirmation is inside the recorded viewport.

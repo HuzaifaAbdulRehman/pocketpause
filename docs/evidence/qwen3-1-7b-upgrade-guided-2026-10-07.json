@@ -1,0 +1,974 @@
+{
+  "checkedAt": "2026-10-06T23:28:05.845Z",
+  "model": {
+    "name": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "bytes": 1359293444,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "2.0B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "version": "0.40.0"
+  },
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "release": "10.0.19045",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 15.9
+  },
+  "protocol": {
+    "samplesPerCombination": 1,
+    "expectedTrials": 13,
+    "generatorSha256": "dfa0c5968d2806338ad6ccd1cbd333c5491c568359ef1a5326f1b4f7f1c6ad93",
+    "evaluatorSha256": "692bf5a25bd4168581b8f7852463d70600cfc9442ce2e20ccc3abc68bad95dcc"
+  },
+  "coldBefore": {
+    "models": []
+  },
+  "trials": [
+    {
+      "phase": "cold",
+      "sample": 0,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 22768.01,
+      "card": {
+        "title": "Shadow Play",
+        "steps": [
+          "If there is a shadow, observe its shape and movement over time. The shadow may change as light shifts around the object it casts. The shadow's outline is visible and contrasts with"
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 1 optional observation, with a different attention cue in each.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:28:28.5988282Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Shadow Play\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and movement over time. The shadow may change as light shifts around the object it casts. The shadow's outline is visible and contrasts with\\\"]\\n  \\t\\t\\t\\t\\t\\t\\t\\t\\t\\t\\t}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,16,10101,21930,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,23667,7054,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,7203,916,882,13,576,12455,1231,2297,438,3100,28635,2163,279,1633,432,56033,13,576,12455,594,21101,374,9434,323,82279,448,7026,256,7451,197,92],\"total_duration\":22723765700,\"load_duration\":7217355200,\"prompt_eval_count\":318,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":7995285000,\"eval_count\":59,\"eval_duration\":7478960000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 8067.94,
+      "card": {
+        "title": "Shadow Play",
+        "steps": [
+          "If there is a shadow, observe its shape and movement over time. The shadow may change as light shifts around the object it casts. The shadow's outline can be traced as it moves in"
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 1 optional observation, with a different attention cue in each.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:28:36.6937505Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Shadow Play\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and movement over time. The shadow may change as light shifts around the object it casts. The shadow's outline can be traced as it moves in \\\"]\\n  }\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,16,10101,21930,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,23667,7054,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,7203,916,882,13,576,12455,1231,2297,438,3100,28635,2163,279,1633,432,56033,13,576,12455,594,21101,646,387,50300,438,432,10797,304,330,921,220,335],\"total_duration\":8050378900,\"load_duration\":25684800,\"prompt_eval_count\":318,\"prompt_eval_cached_count\":317,\"prompt_eval_duration\":131888000,\"eval_count\":60,\"eval_duration\":7875542000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 10219.53,
+      "card": {
+        "title": "Shadow Play",
+        "steps": [
+          "If there is a shadow, observe its shape and movement over time. The shadow seems to shift slightly with the light source direction. The shadow's outline is soft and fluid, changing"
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 1 optional observation, with a different attention cue in each.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:28:46.9171258Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Shadow Play\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and movement over time. The shadow seems to shift slightly with the light source direction. The shadow's outline is soft and fluid, changing\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,16,10101,21930,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,23667,7054,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,7203,916,882,13,576,12455,4977,311,6407,10078,448,279,3100,2530,5106,13,576,12455,594,21101,374,8413,323,15590,11,10018,698,220,5133,92],\"total_duration\":10206532200,\"load_duration\":18933400,\"prompt_eval_count\":320,\"prompt_eval_cached_count\":190,\"prompt_eval_duration\":3222449000,\"eval_count\":57,\"eval_duration\":6950539000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 9278.05,
+      "card": {
+        "title": "Observing Light and Shadow",
+        "steps": [
+          "If there are outlines, notice how light falls across the ground. The edges of objects create a soft shadow pattern on the surface."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 1 optional observation, with a different attention cue in each.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:28:56.1997317Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Shadow\\\",\\n  \\\"steps\\\": [\\n    \\\"If there are outlines, notice how light falls across the ground. The edges of objects create a soft shadow pattern on the surface.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,16,10101,21930,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,24298,756,220,330,24080,788,2278,262,330,2679,1052,525,49629,11,5293,1246,3100,17066,3941,279,4910,13,576,12822,315,6171,1855,264,8413,12455,5383,389,279,7329,10040,220,5133,92],\"total_duration\":9266756200,\"load_duration\":17080500,\"prompt_eval_count\":316,\"prompt_eval_cached_count\":190,\"prompt_eval_duration\":3065978000,\"eval_count\":49,\"eval_duration\":6168656000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 7372.4,
+      "card": {
+        "title": "Shadow play",
+        "steps": [
+          "If there is a shadow, observe its shape and movement without naming it."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 1 optional observation, with a different attention cue in each.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:29:03.5733464Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Shadow play\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and movement without naming it.\\\"\\n    ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,16,10101,21930,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,23667,1486,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,7203,2041,34948,432,10040,262,5133,92],\"total_duration\":7360608300,\"load_duration\":16998400,\"prompt_eval_count\":315,\"prompt_eval_cached_count\":190,\"prompt_eval_duration\":3096309000,\"eval_count\":35,\"eval_duration\":4228504000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 12599.08,
+      "card": {
+        "title": "Stillness in the Street",
+        "steps": [
+          "If there is a shadow, observe its shape and how it moves with the light.",
+          "If a sound is present, note the type and how it contrasts with the surrounding silence."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 2 optional observations, with a different attention cue in each.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:29:16.1709726Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Stillness in the Street\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and how it moves with the light.\\\",\\n    \\\"If a sound is present, note the type and how it contrasts with the surrounding silence.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,17,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,23322,2090,304,279,6686,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,1246,432,10797,448,279,3100,10346,262,330,2679,264,5112,374,3042,11,5185,279,943,323,1246,432,82279,448,279,14590,21162,10040,220,5133,92],\"total_duration\":12583989100,\"load_duration\":18994500,\"prompt_eval_count\":319,\"prompt_eval_cached_count\":186,\"prompt_eval_duration\":4625873000,\"eval_count\":60,\"eval_duration\":7922820000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 10836.96,
+      "card": {
+        "title": "Observing Nearby Contrasts",
+        "steps": [
+          "If there is light, observe the contrast between bright and dark areas around you.",
+          "If there is sound, note the contrast between soft and loud noises in the environment."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 2 optional observations, with a different attention cue in each.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:29:27.0163096Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Nearby Contrasts\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is light, observe the contrast between bright and dark areas around you.\\\",\\n    \\\"If there is sound, note the contrast between soft and loud noises in the environment.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,17,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,95548,34241,11757,756,220,330,24080,788,2278,262,330,2679,1052,374,3100,11,22986,279,12872,1948,9906,323,6319,5671,2163,498,10346,262,330,2679,1052,374,5112,11,5185,279,12872,1948,8413,323,17361,57348,304,279,4573,10040,220,5133,92],\"total_duration\":10823200400,\"load_duration\":20199000,\"prompt_eval_count\":321,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":4032034000,\"eval_count\":58,\"eval_duration\":6752641000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 11782.28,
+      "card": {
+        "title": "Observing Light and Sound",
+        "steps": [
+          "If there are outlines, notice how light reflects off them. The contrast between light and shadow creates a visual rhythm.",
+          "If there is sound, listen for the quiet hum of the environment. The way it blends with the wind's subtle movement is natural and steady."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 2 optional observations, with a different attention cue in each.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:29:38.8016528Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Sound\\\",\\n  \\\"steps\\\": [\\n    \\\"If there are outlines, notice how light reflects off them. The contrast between light and shadow creates a visual rhythm.\\\",\\n    \\\"If there is sound, listen for the quiet hum of the environment. The way it blends with the wind's subtle movement is natural and steady.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,17,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,14594,756,220,330,24080,788,2278,262,330,2679,1052,525,49629,11,5293,1246,3100,25963,1007,1105,13,576,12872,1948,3100,323,12455,11450,264,9124,36290,10346,262,330,2679,1052,374,5112,11,8844,369,279,11340,2784,315,279,4573,13,576,1616,432,57843,448,279,9956,594,26447,7203,374,5810,323,24020,10040,220,5133,92],\"total_duration\":11772509000,\"load_duration\":20814900,\"prompt_eval_count\":317,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":3319506000,\"eval_count\":77,\"eval_duration\":8416257000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 10214.24,
+      "card": {
+        "title": "Observing Shadows",
+        "steps": [
+          "If there are shadows, notice how they move with the light.",
+          "If the light is bright, watch how it contrasts with the dark areas."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 2 optional observations, with a different attention cue in each.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:29:49.0149912Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Shadows\\\",\\n  \\\"steps\\\": [\\n    \\\"If there are shadows, notice how they move with the light.\\\",\\n    \\\"If the light is bright, watch how it contrasts with the dark areas.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,17,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,66449,756,220,330,24080,788,2278,262,330,2679,1052,525,34512,11,5293,1246,807,3271,448,279,3100,10346,262,330,2679,279,3100,374,9906,11,3736,1246,432,82279,448,279,6319,5671,10040,220,5133,92],\"total_duration\":10200692000,\"load_duration\":17604700,\"prompt_eval_count\":316,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":3147965000,\"eval_count\":51,\"eval_duration\":6983785000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 16123.5,
+      "error": {
+        "code": "invalid-output",
+        "message": "The local model returned an unusable activity. Try again."
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 3 optional observations, with a different attention cue in each.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:30:05.1434121Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Stationary Detail Observation\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is a shadow, observe its shape and how it moves with the light.\\\",\\n    \\\"If a sound is present, note the type and how it contrasts with the surrounding silence.\\\",\\n    \\\"If a texture is visible, describe the roughness or smoothness and how it feels to the touch.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,18,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,19765,658,25771,86429,756,220,330,24080,788,2278,262,330,2679,1052,374,264,12455,11,22986,1181,6083,323,1246,432,10797,448,279,3100,10346,262,330,2679,264,5112,374,3042,11,5185,279,943,323,1246,432,82279,448,279,14590,21162,10346,262,330,2679,264,10434,374,9434,11,7512,279,11165,2090,476,10876,2090,323,1246,432,11074,311,279,5796,10040,220,5133,92],\"total_duration\":16111751600,\"load_duration\":22514000,\"prompt_eval_count\":319,\"prompt_eval_cached_count\":187,\"prompt_eval_duration\":4179991000,\"eval_count\":82,\"eval_duration\":11890579000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 16734.04,
+      "card": {
+        "title": "Terrace Observation",
+        "steps": [
+          "If there is light, observe the contrast between the bright surface and the shadowed edges.",
+          "If you can hear a sound, note the direction and how it changes with movement.",
+          "If there is a texture, describe the softness or hardness of the surface you're touching."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 3 optional observations, with a different attention cue in each.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:30:21.8831583Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Terrace Observation\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is light, observe the contrast between the bright surface and the shadowed edges.\\\",\\n    \\\"If you can hear a sound, note the direction and how it changes with movement.\\\",\\n    \\\"If there is a texture, describe the softness or hardness of the surface you're touching.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,18,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,51402,578,86429,756,220,330,24080,788,2278,262,330,2679,1052,374,3100,11,22986,279,12872,1948,279,9906,7329,323,279,12455,291,12822,10346,262,330,2679,498,646,6723,264,5112,11,5185,279,5106,323,1246,432,4344,448,7203,10346,262,330,2679,1052,374,264,10434,11,7512,279,8413,2090,476,70903,315,279,7329,498,2299,30587,10040,220,5133,92],\"total_duration\":16722915300,\"load_duration\":23109200,\"prompt_eval_count\":321,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":4338525000,\"eval_count\":79,\"eval_duration\":12295210000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 13447.71,
+      "card": {
+        "title": "Observing Shadows and Light",
+        "steps": [
+          "If there are shadows, notice how they move with the light.",
+          "If the light is bright, observe how it contrasts with the dark areas.",
+          "If there is a sound, listen for the rhythm of the wind in the air."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 3 optional observations, with a different attention cue in each.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:30:35.3328581Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Shadows and Light\\\",\\n  \\\"steps\\\": [\\n    \\\"If there are shadows, notice how they move with the light.\\\",\\n    \\\"If the light is bright, observe how it contrasts with the dark areas.\\\",\\n    \\\"If there is a sound, listen for the rhythm of the wind in the air.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,18,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,66449,323,8658,756,220,330,24080,788,2278,262,330,2679,1052,525,34512,11,5293,1246,807,3271,448,279,3100,10346,262,330,2679,279,3100,374,9906,11,22986,1246,432,82279,448,279,6319,5671,10346,262,330,2679,1052,374,264,5112,11,8844,369,279,36290,315,279,9956,304,279,3720,10040,220,5133,92],\"total_duration\":13437644500,\"load_duration\":23685700,\"prompt_eval_count\":317,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":4575364000,\"eval_count\":72,\"eval_duration\":8784911000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 12765.75,
+      "card": {
+        "title": "Observing Light and Shadow",
+        "steps": [
+          "If there is light, notice how it casts soft shadows on the ground.",
+          "If there is sound, listen for the quiet hum of the wind through trees.",
+          "If there is color, observe the way the sky changes from light to dark"
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nUse plain language. Do not infer temperature, breeze, materials or what makes a sound.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nWrite exactly 3 optional observations, with a different attention cue in each.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nVary the attention cue, not the imagined scenery. Keep the title short and specific to the observation.\nLet the person linger without counting or timing. They can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T23:30:48.0982284Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Observing Light and Shadow\\\",\\n  \\\"steps\\\": [\\n    \\\"If there is light, notice how it casts soft shadows on the ground.\\\",\\n    \\\"If there is sound, listen for the quiet hum of the wind through trees.\\\",\\n    \\\"If there is color, observe the way the sky changes from light to dark\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,10253,14396,4128,13,3155,537,23583,9315,11,45285,11,7236,476,1128,3643,264,5112,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,7985,6896,220,18,10101,23722,11,448,264,2155,6529,49398,304,1817,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,53,658,279,6529,49398,11,537,279,34606,50231,13,13655,279,2265,2805,323,3151,311,279,21930,624,10061,279,1697,39509,2041,25009,476,18405,13,2379,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,37763,287,8658,323,24298,756,220,330,24080,788,2278,262,330,2679,1052,374,3100,11,5293,1246,432,56033,8413,34512,389,279,4910,10346,262,330,2679,1052,374,5112,11,8844,369,279,11340,2784,315,279,9956,1526,12408,10346,262,330,2679,1052,374,1894,11,22986,279,1616,279,12884,4344,504,3100,311,6319,698,220,5133,92],\"total_duration\":12752484700,\"load_duration\":20512100,\"prompt_eval_count\":316,\"prompt_eval_cached_count\":191,\"prompt_eval_duration\":3833375000,\"eval_count\":74,\"eval_duration\":8848061000}",
+      "rawTruncated": false
+    }
+  ],
+  "baseline": [
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    }
+  ]
+}

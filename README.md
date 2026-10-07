@@ -3,6 +3,9 @@
 Choose a short outdoor observation, save the card, then put your screen away.
 Select 5, 10 or 15 minutes and street, terrace, courtyard or campus. No bird
 recordings, photos, location access or journal entries are needed.
+The local model chooses one, two or three observation cues; PocketPause turns
+those cues into fixed conditional wording instead of trusting model-written
+scene descriptions.
 
 ![A real generated card](docs/evidence/real-flow.png)
 
@@ -81,7 +84,7 @@ npm.cmd run test:browser
 npm.cmd run smoke
 ```
 
-Browser setup downloads project-local Chromium. The five browser tests
+Browser setup downloads project-local Chromium. The nine browser tests
 use controlled API responses and need no model. Smoke uses the real model
 and records a local video under .tools/smoke. For development, `npm.cmd run dev`
 starts the local API and Vite on port 5173.
@@ -97,10 +100,11 @@ npm.cmd run evaluate -- my-local-run.json
 It records raw output, failures, settings, model digest and all 12 combinations.
 The fixed picker in scripts/baseline.ts exists only for comparison.
 
-[Measured results](docs/evidence/task-5.md): final warm requests took
-12.1–16.5 seconds on the tested i5 laptop, with all 12 valid. The cards are
-repetitive; the fixed baseline is clearer and more consistent. Phrase checks
-cannot guarantee safety. No outdoor benefit or health effect has been tested.
+[Measured results](docs/evaluation.md): the cue contract produced 37/37 valid
+cards in one cold plus three warm samples for each of 12 combinations. Warm
+requests took 1.85–6.91 seconds (3.71 seconds average); the cold request took
+16.89 seconds. The finite vocabulary produced 11 distinct rendered step sets.
+This is a software and desk review, not an outdoor trial or a health study.
 
 React renders plain text. The Node server validates choices, limits request
 size and accepts one generation at a time. It serves only the built interface

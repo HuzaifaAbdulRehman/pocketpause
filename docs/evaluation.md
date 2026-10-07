@@ -1,10 +1,28 @@
 # Evidence and limits
 
-The [measurement record](evidence/task-5.md) preserves all three model runs,
-including failures and per-case desk scores. The final prompt passes the
-12-case software pilot; that is not an estimate of future reliability.
-The baseline matches its usable-card count and is simpler. Duration and
-surroundings have little effect on the generated steps.
+The [cue-contract report](evidence/qwen3-1-7b-upgrade-cues-2026-10-07.json)
+preserves one cold request and three warm samples for each of the 12
+duration/setting combinations. All 37 requests returned valid cue cards. The
+fixed renderer, rather than model prose, supplied the user-facing sentences.
+
+Warm requests took 1.85–6.91 seconds, averaging 3.71 seconds. The cold
+request took 16.89 seconds. The 36 warm cards produced 11 distinct rendered
+step sets. That limited variety is an honest limitation of the six-cue
+vocabulary, not evidence that the model understands a particular place.
+
+The unchanged baseline still supplies 12 usable cards and remains simpler.
+Manual desk review checked context fit, no required equipment or collection,
+clear conditional wording, stationary observation, duration fit and
+within-setting variety. The cue cards pass those software checks because each
+sentence is optional and names no object or sound source. This is not an
+outdoor trial, a health study or a model-superiority claim.
+
+The earlier prompt experiments remain dated historical evidence:
+[task-5](evidence/task-5.md), [baseline](evidence/qwen3-1-7b-upgrade-baseline-2026-10-07.json),
+[guided](evidence/qwen3-1-7b-upgrade-guided-2026-10-07.json),
+[concise](evidence/qwen3-1-7b-upgrade-concise-2026-10-07.json) and
+[pattern](evidence/qwen3-1-7b-upgrade-pattern-2026-10-07.json). They document
+why free-form model wording was replaced with the cue contract.
 
 The [registry denial](evidence/registry-denied-2026-10-07.json) and subsequent
 local generation support operation without model-registry access after

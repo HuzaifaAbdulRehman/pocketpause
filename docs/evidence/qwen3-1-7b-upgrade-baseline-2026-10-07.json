@@ -1,0 +1,963 @@
+{
+  "checkedAt": "2026-10-06T22:47:22.571Z",
+  "model": {
+    "name": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "bytes": 1359293444,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "2.0B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "version": "0.40.0"
+  },
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "release": "10.0.19045",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 15.9
+  },
+  "coldBefore": {
+    "models": []
+  },
+  "trials": [
+    {
+      "phase": "cold",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 25858.38,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes from the distance, listen for its direction and how it fades into the background."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:47:48.4071552Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes from the distance, listen for its direction and how it fades into the background.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,1181,5106,323,1246,432,86409,1119,279,4004,10040,220,5133,92],\"total_duration\":25821257000,\"load_duration\":7039966300,\"prompt_eval_count\":273,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":8256495999,\"eval_count\":80,\"eval_duration\":10486914000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 10853.84,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes from the distance, listen for its direction and how it fades into silence."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:47:59.2860397Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes from the distance, listen for its direction and how it fades into silence.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,1181,5106,323,1246,432,86409,1119,21162,10040,220,5133,92],\"total_duration\":10839377900,\"load_duration\":34860100,\"prompt_eval_count\":273,\"prompt_eval_cached_count\":272,\"prompt_eval_duration\":154009000,\"eval_count\":79,\"eval_duration\":10624624000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 14297.63,
+      "card": {
+        "title": "Outdoor Pause in Terrace",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels cool, note the contrast between the warmth of your body and the surrounding temperature.",
+          "If a sound echoes from the distance, listen for its direction and how it fades into the quiet."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:48:13.586035Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause in Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels cool, note the contrast between the warmth of your body and the surrounding temperature.\\\",\\n    \\\"If a sound echoes from the distance, listen for its direction and how it fades into the quiet.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,304,79170,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,7010,11,5185,279,12872,1948,279,40363,315,697,2487,323,279,14590,9315,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,1181,5106,323,1246,432,86409,1119,279,11340,10040,220,5133,92],\"total_duration\":14284305900,\"load_duration\":24029100,\"prompt_eval_count\":273,\"prompt_eval_cached_count\":172,\"prompt_eval_duration\":3209331000,\"eval_count\":85,\"eval_duration\":10996984000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 13952.11,
+      "card": {
+        "title": "Outdoor Pause in Courtyard",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes from the distance, listen for its direction and how it fades into silence."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:48:27.5408185Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause in Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes from the distance, listen for its direction and how it fades into silence.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,304,6244,55536,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,1181,5106,323,1246,432,86409,1119,21162,10040,220,5133,92],\"total_duration\":13940005700,\"load_duration\":25656400,\"prompt_eval_count\":273,\"prompt_eval_cached_count\":172,\"prompt_eval_duration\":3347098000,\"eval_count\":82,\"eval_duration\":10522795000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 14429.49,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels cool, note the contrast between the breeze and the stillness around you.",
+          "If a sound echoes from somewhere, listen for its direction and how it fades into the distance."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 5 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:48:41.9716222Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels cool, note the contrast between the breeze and the stillness around you.\\\",\\n    \\\"If a sound echoes from somewhere, listen for its direction and how it fades into the distance.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,20,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,7010,11,5185,279,12872,1948,279,45285,323,279,2058,2090,2163,498,10346,262,330,2679,264,5112,69957,504,14696,11,8844,369,1181,5106,323,1246,432,86409,1119,279,6010,10040,220,5133,92],\"total_duration\":14415709600,\"load_duration\":19502500,\"prompt_eval_count\":273,\"prompt_eval_cached_count\":172,\"prompt_eval_duration\":3100976000,\"eval_count\":81,\"eval_duration\":11235146000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 15402.13,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes, listen for its direction and how it fades into the distance."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:48:57.3656179Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes, listen for its direction and how it fades into the distance.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,11,8844,369,1181,5106,323,1246,432,86409,1119,279,6010,10040,220,5133,92],\"total_duration\":15378813100,\"load_duration\":32757600,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":168,\"prompt_eval_duration\":3372787000,\"eval_count\":77,\"eval_duration\":11925105000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 14956.79,
+      "card": {
+        "title": "Outdoor Pause in Terrace",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If the breeze moves gently, observe how it interacts with the fabric of your clothes."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:49:12.3385114Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause in Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If the breeze moves gently, observe how it interacts with the fabric of your clothes.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,304,79170,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,279,45285,10797,29273,11,22986,1246,432,83161,448,279,13055,315,697,15097,10040,220,5133,92],\"total_duration\":14943645500,\"load_duration\":32960900,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3415702000,\"eval_count\":79,\"eval_duration\":11442482000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 14664.93,
+      "card": {
+        "title": "Outdoor Pause in Courtyard",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes, listen for the direction and distance of the sound."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:49:26.9956259Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause in Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes, listen for the direction and distance of the sound.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,304,6244,55536,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,11,8844,369,279,5106,323,6010,315,279,5112,10040,220,5133,92],\"total_duration\":14641400900,\"load_duration\":24123100,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3359931000,\"eval_count\":78,\"eval_duration\":11202585000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 13615.63,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels cool, note the contrast between the breeze and the stillness around you.",
+          "If a sound echoes from somewhere, listen for the direction and intensity of the echo."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 10 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:49:40.6214356Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels cool, note the contrast between the breeze and the stillness around you.\\\",\\n    \\\"If a sound echoes from somewhere, listen for the direction and intensity of the echo.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,15,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,7010,11,5185,279,12872,1948,279,45285,323,279,2058,2090,2163,498,10346,262,330,2679,264,5112,69957,504,14696,11,8844,369,279,5106,323,20612,315,279,1687,10040,220,5133,92],\"total_duration\":13597361900,\"load_duration\":50486600,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3434609000,\"eval_count\":79,\"eval_duration\":10035696000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 15156.81,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the contrast between the warmth and the cooler surrounding.",
+          "If a sound echoes from the distance, listen for its direction and how it fades into the background."
+        ],
+        "duration": 15,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in street.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:49:55.7833194Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If a sound echoes from the distance, listen for its direction and how it fades into the background.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,8592,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,1181,5106,323,1246,432,86409,1119,279,4004,10040,220,5133,92],\"total_duration\":15144558400,\"load_duration\":27132500,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":169,\"prompt_eval_duration\":3323478000,\"eval_count\":80,\"eval_duration\":11751256000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 14686.07,
+      "card": {
+        "title": "Outdoor Pause on Terrace",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels cool, feel the contrast between the warmth of your body and the surrounding environment.",
+          "If a sound echoes from the distance, listen for the direction and intensity of the sound."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in terrace.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:50:10.4714621Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause on Terrace\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels cool, feel the contrast between the warmth of your body and the surrounding environment.\\\",\\n    \\\"If a sound echoes from the distance, listen for the direction and intensity of the sound.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,51478,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,389,79170,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,7010,11,2666,279,12872,1948,279,40363,315,697,2487,323,279,14590,4573,10346,262,330,2679,264,5112,69957,504,279,6010,11,8844,369,279,5106,323,20612,315,279,5112,10040,220,5133,92],\"total_duration\":14672178500,\"load_duration\":24587200,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3393661000,\"eval_count\":83,\"eval_duration\":11198945000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 14621.27,
+      "card": {
+        "title": "Outdoor Pause in Courtyard",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, feel the contrast between the warmth and the cooler surrounding.",
+          "If the sound of wind is present, listen for the direction it comes from and how it moves through the space."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in courtyard.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:50:25.0938375Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause in Courtyard\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, feel the contrast between the warmth and the cooler surrounding.\\\",\\n    \\\"If the sound of wind is present, listen for the direction it comes from and how it moves through the space.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,65285,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,304,6244,55536,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,2666,279,12872,1948,279,40363,323,279,35821,14590,10346,262,330,2679,279,5112,315,9956,374,3042,11,8844,369,279,5106,432,4041,504,323,1246,432,10797,1526,279,3550,10040,220,5133,92],\"total_duration\":14602065900,\"load_duration\":40245000,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3283165000,\"eval_count\":86,\"eval_duration\":11221132000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 14108.98,
+      "card": {
+        "title": "Outdoor Pause",
+        "steps": [
+          "If any outline catches your eye, notice where it curves or straightens from your stationary spot.",
+          "If the air feels warm, note the direction of the breeze and how it interacts with your body.",
+          "If the sound of rustling leaves is present, observe the rhythm and intensity of the movement."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Create a brief English outdoor pause. The person is already in a safe stationary spot.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nGive 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,\nor any ambient sound already audible. Refer to whatever is present, without naming imagined examples.\nEvery step must begin with \"If\" and make the observation optional when the sensation is absent.\nKeep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.\nAvoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.\nReturn only JSON with title and steps. Do not add duration or surroundings.",
+        "prompt": "Write an activity for about 15 minutes outdoors in campus.\nThis is not a scene description. You cannot see this place. Never invent objects or weather.\nEach step MUST start with \"If\". Use a condition about whatever is visible or audible, then one simple observation.\nFor example: \"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\"\nVary the attention cue, not the imagined scenery. The person can skip any step and simply pause.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "title",
+            "steps"
+          ],
+          "properties": {
+            "title": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 80
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 3,
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-06T22:50:39.2166222Z\",\"response\":\"{\\n  \\\"title\\\": \\\"Outdoor Pause\\\",\\n  \\\"steps\\\": [\\n    \\\"If any outline catches your eye, notice where it curves or straightens from your stationary spot.\\\",\\n    \\\"If the air feels warm, note the direction of the breeze and how it interacts with your body.\\\",\\n    \\\"If the sound of rustling leaves is present, observe the rhythm and intensity of the movement.\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,4021,264,9814,6364,15789,18087,13,576,1697,374,2669,304,264,6092,52635,7702,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,35127,220,16,311,220,18,2805,11221,1667,1172,26138,476,49629,421,9434,11,32206,82279,421,9434,345,269,894,34188,5112,2669,79315,13,28634,311,8820,374,3042,11,2041,34948,34606,10295,624,11510,3019,1969,3161,448,330,2679,1,323,1281,279,21930,10101,979,279,36292,374,27211,624,19434,279,1697,304,1992,13,30843,287,374,3322,25,902,7096,11,25895,11,10158,11,16230,476,821,4426,624,52116,19241,11,9442,11,12822,323,35294,13,2308,6457,9462,13,576,882,374,44868,26,902,28990,432,624,5598,1172,4718,448,2265,323,7354,13,3155,537,912,8090,476,39090,13,151645,198,151644,872,198,7985,458,5702,369,911,220,16,20,4420,33532,304,15319,624,1986,374,537,264,6109,4008,13,1446,4157,1490,419,1992,13,14695,17023,6171,476,9104,624,4854,3019,27732,1191,448,330,2679,3263,5443,264,2971,911,8820,374,9434,476,79315,11,1221,825,4285,21930,624,2461,3110,25,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10040,53,658,279,6529,49398,11,537,279,34606,50231,13,576,1697,646,10706,894,3019,323,4936,18087,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,2102,788,330,98535,49656,756,220,330,24080,788,2278,262,330,2679,894,21101,37834,697,7912,11,5293,1380,432,35933,476,7678,724,504,697,52635,7702,10346,262,330,2679,279,3720,11074,8205,11,5185,279,5106,315,279,45285,323,1246,432,83161,448,697,2487,10346,262,330,2679,279,5112,315,23071,2718,10901,374,3042,11,22986,279,36290,323,20612,315,279,7203,10040,220,5133,92],\"total_duration\":14092679000,\"load_duration\":47327900,\"prompt_eval_count\":274,\"prompt_eval_cached_count\":173,\"prompt_eval_duration\":3274835000,\"eval_count\":82,\"eval_duration\":10707435000}",
+      "rawTruncated": false
+    }
+  ],
+  "baseline": [
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    }
+  ]
+}

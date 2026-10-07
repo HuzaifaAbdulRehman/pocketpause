@@ -10,8 +10,9 @@ This is my submission for [Week 1: Touch Grass](https://dev.to/challenges/hackto
 
 PocketPause offers one short outdoor observation instead of another feed.
 Choose roughly 5, 10 or 15 minutes and a broad setting: street, terrace,
-courtyard or campus. A local open-weight model writes a small card. Read it,
-save the plain text if useful, then put the screen away.
+courtyard or campus. A local open-weight model chooses a small set of
+observation cues. PocketPause turns them into a fixed card. Read it, save the
+plain text if useful, then put the screen away.
 
 The idea is for someone who wants a pause without having to record birds,
 take photographs or maintain a journal. There is no GPS, account or upload.
@@ -31,6 +32,8 @@ and open it in a video player. You can also [view the file on GitHub](https://gi
 The recording shows the real local model generating a card, followed by a
 plain-text download. This is a desktop software demonstration, not an
 outdoor trial.
+The model selects approved outline, light or sound cues; the app supplies the
+conditional wording so it does not invent a scene the laptop cannot see.
 
 I have not tried the activity outside or measured any change in well-being
 or screen time.
@@ -51,31 +54,26 @@ preserves the raw output and failed runs.
 
 React handles the two selectors, loading/error states and card download.
 A small Node server validates choices and calls Ollama on loopback.
-Qwen3 supplies the actual activity text, using the qwen3:1.7b tag in
-non-thinking mode. It is the generation engine, not just a coding aid.
+Qwen3 supplies the cue selection, using the qwen3:1.7b tag in non-thinking
+mode. It is the generation engine, not just a coding aid.
 
-The model returns constrained JSON, but that is only the first boundary.
-The server checks types and lengths, rejects extra fields, applies phrase
-checks and requires each step to begin with If. It renders model text as
-text, never executable HTML. One request runs at a time, with a two-minute
-deadline. A failed generation shows an error rather than a disguised fixed card.
+The model returns one exact JSON field containing distinct values from a
+six-cue enum. The domain parser checks the fields and the one/two/three cue
+count for 5/10/15 minutes. The renderer maps each cue to fixed conditional
+sentences, so missing sounds or sights can be skipped and model text never
+reaches the card. One request runs at a time, with a two-minute deadline. A
+failed generation shows an error rather than a disguised fixed card.
 
-The first real measurements were disappointing. In the initial warm run,
-only 9 of 12 outputs passed validation. Some accepted cards still invented
-glass walls, fencing or wet pavement. An unknown-scene prompt alone did
-not solve it: the second run reached 11 valid outputs, but still invented
-details.
+The cue report covers one cold request and three warm samples for each of the
+12 combinations: 37/37 cards were valid. Warm requests took 1.85–6.91 seconds
+(3.71 seconds average); the cold request took 16.89 seconds. The 36 warm
+cards produced 11 distinct rendered step sets. The finite vocabulary limits
+variety, and this is a software desk review rather than an outdoor trial.
 
-The final prompt repeats the conditional instruction in the user request,
-uses an outline example, lowers temperature to 0.2 and fixes seed 42.
-All 12 warm combinations passed validation and a desk usability review.
-They took 12.1–16.5 seconds on an i5-8350U laptop with 15.9 GiB RAM; the
-cold request took 27.6 seconds. These are a small pilot, not a reliability claim.
-
-The fixed non-AI baseline also supplies 12 usable cards and is more
-consistent. The model often repeats the outline example and adapts little
-to place or duration. I would not claim AI made this a better outdoor
-experience on the evidence available.
+The fixed non-AI baseline also supplies 12 usable cards and remains simpler.
+The cue cards pass the desk checks for optional stationary observation, but I
+would not claim AI made this a better outdoor experience on the evidence
+available.
 
 ## Why Does Open Innovation Matter?
 
