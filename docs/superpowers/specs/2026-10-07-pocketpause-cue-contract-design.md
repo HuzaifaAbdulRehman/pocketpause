@@ -59,7 +59,10 @@ The cue-to-instruction mapping is fixed:
 - `sound_loudness`: If a sound is already audible, notice its loudness.
 
 The application maps cues to these fixed sentences and creates a short title
-from the selected cue group. The renderer never names an object, weather,
+from the selected cue group. The title uses the first occurrence of each cue
+family in order: `shape`, `light` and `sound`; a sound-only title is `Listen
+nearby`, and other titles are `Notice` followed by the family names joined with
+`and`. The renderer never names an object, weather,
 material or sound source. It never asks the person to touch, move, record,
 collect, identify people or read signs. A missing sensation is optional because
 each sentence starts with `If`.
@@ -90,7 +93,8 @@ rejection, exact Ollama schema, and deterministic rendering. Keep existing
 server, browser and security tests. The evaluation planner remains one cold
 request plus three samples for each of the 12 combinations, with explicit seeds
 42, 43 and 44. Each report preserves prompts, schema, settings, raw responses,
-rendered cards, failures, timings and source hashes.
+rendered cards, failures, timings and hashes for the generator, domain renderer
+and evaluator sources.
 
 Desk review scores context fit, no required equipment or collection, clear
 instructions, usable stationary observation, duration fit and within-setting
