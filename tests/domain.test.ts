@@ -1,6 +1,13 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
-import { formatCard, makeCard, parseModelActivity, parseRequest } from '../src/domain.ts';
+import {
+  formatCard,
+  makeCard,
+  parseModelActivity,
+  parseModelCues,
+  parseRequest,
+  renderCueActivity,
+} from '../src/domain.ts';
 
 for (const duration of [5, 10, 15]) {
   for (const surroundings of ['street', 'terrace', 'courtyard', 'campus']) {
@@ -84,4 +91,59 @@ test('exports every card field and the safety reminder as plain text', () => {
   }
   assert.ok(!text.includes('<html'));
   assert.ok(!text.includes('<!DOCTYPE'));
+});
+
+const cues = [
+  'outline_shape',
+  'outline_edge',
+  'brightness_contrast',
+  'brightness_change',
+  'sound_rhythm',
+  'sound_loudness',
+] as const;
+
+test('accepts every allowed observation cue', () => {
+  assert.deepEqual(parseModelCues({ cues: cues.slice(0, 3) }, 3), { cues: cues.slice(0, 3) });
+});
+
+for (const cue of cues) {
+  test(`accepts a single ${cue} cue`, () => {
+    assert.deepEqual(parseModelCues({ cues: [cue] }, 1), { cues: [cue] });
+  });
+}
+
+const invalidCueOutputs: [string, unknown, number][] = [
+  ['unknown cue', { cues: ['tree'] }, 1],
+  ['duplicate cues', { cues: ['outline_shape', 'outline_shape'] }, 2],
+  ['wrong cue count', { cues: ['outline_shape'] }, 2],
+  ['too many cues', { cues: ['outline_shape', 'outline_edge', 'brightness_contrast', 'brightness_change'] }, 4],
+  ['non-array cues', { cues: 'outline_shape' }, 1],
+  ['missing cues', {}, 1],
+  ['extra fields', { cues: ['outline_shape'], title: 'invented text' }, 1],
+  ['null output', null, 1],
+];
+
+for (const [name, value, expectedCount] of invalidCueOutputs) {
+  test(`rejects ${name} in model cues`, () => assert.throws(() => parseModelCues(value, expectedCount)));
+}
+
+test('renders every cue to fixed conditional wording', () => {
+  assert.deepEqual(renderCueActivity({ cues: [...cues] }), {
+    title: 'Notice shape and light and sound',
+    steps: [
+      'If an outline is visible, notice its shape.',
+      'If an outline is visible, notice where its edge begins and ends.',
+      'If light and shadow are visible, notice their contrast.',
+      'If brightness changes across a visible area, notice the transition.',
+      'If a sound is already audible, notice its rhythm.',
+      'If a sound is already audible, notice its loudness.',
+    ],
+  });
+});
+
+test('renders a sound-only title without inventing a source', () => {
+  assert.deepEqual(renderCueActivity({ cues: ['sound_loudness'] }), {
+    title: 'Listen nearby',
+    steps: ['If a sound is already audible, notice its loudness.'],
+  });
 });
