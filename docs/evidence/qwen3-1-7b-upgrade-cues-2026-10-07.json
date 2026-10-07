@@ -1,0 +1,2459 @@
+{
+  "checkedAt": "2026-10-07T13:10:14.986Z",
+  "model": {
+    "name": "qwen3:1.7b",
+    "digest": "8f68893c685c3ddff2aa3fffce2aa60a30bb2da65ca488b61fff134a4d1730e7",
+    "bytes": 1359293444,
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "qwen3",
+      "families": [
+        "qwen3"
+      ],
+      "parameter_size": "2.0B",
+      "quantization_level": "Q4_K_M"
+    }
+  },
+  "runtime": {
+    "version": "0.40.0"
+  },
+  "environment": {
+    "node": "v24.13.0",
+    "platform": "win32",
+    "release": "10.0.19045",
+    "cpu": "Intel(R) Core(TM) i5-8350U CPU @ 1.70GHz",
+    "logicalCpus": 8,
+    "memoryGiB": 15.9
+  },
+  "protocol": {
+    "samplesPerCombination": 3,
+    "expectedTrials": 37,
+    "generatorSha256": "5257a22c24759d25d53e4214903afe75054e343f72ad0f8667af680ccd1e0a4c",
+    "domainSha256": "066dd77ecc07b66605c5ae2866c3314fcb6e15bd1865a2b2d17bd55437c77711",
+    "evaluatorSha256": "c9cc3d32bb2caf69fe8645c8edb705dbb01c2ca0a5bbc72531b3b50ce066c263"
+  },
+  "coldBefore": {
+    "models": []
+  },
+  "trials": [
+    {
+      "phase": "cold",
+      "sample": 0,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 16894.58,
+      "card": {
+        "title": "Listen nearby",
+        "steps": [
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:31.8555154Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,27532,907,2950,2090,7026,92],\"total_duration\":16844680600,\"load_duration\":8140276100,\"prompt_eval_count\":206,\"prompt_eval_cached_count\":0,\"prompt_eval_duration\":6505544000,\"eval_count\":14,\"eval_duration\":2166980000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 2749.96,
+      "card": {
+        "title": "Listen nearby",
+        "steps": [
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:34.6409802Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,27532,907,2950,2090,7026,92],\"total_duration\":2725346000,\"load_duration\":22426900,\"prompt_eval_count\":206,\"prompt_eval_cached_count\":205,\"prompt_eval_duration\":135151000,\"eval_count\":14,\"eval_duration\":2532365000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 2840.48,
+      "card": {
+        "title": "Listen nearby",
+        "steps": [
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:37.4877711Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,27532,907,2950,2090,7026,92],\"total_duration\":2825492100,\"load_duration\":37732300,\"prompt_eval_count\":206,\"prompt_eval_cached_count\":205,\"prompt_eval_duration\":191510000,\"eval_count\":14,\"eval_duration\":2564478000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "elapsedMs": 2983.34,
+      "card": {
+        "title": "Listen nearby",
+        "steps": [
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 5,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:40.4698047Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,27532,907,2950,2090,7026,92],\"total_duration\":2967731900,\"load_duration\":39792900,\"prompt_eval_count\":206,\"prompt_eval_cached_count\":205,\"prompt_eval_duration\":174810000,\"eval_count\":14,\"eval_duration\":2704049000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 5081.47,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If light and shadow are visible, notice their contrast."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:45.5512084Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,7026,92],\"total_duration\":5063577200,\"load_duration\":31626600,\"prompt_eval_count\":208,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2651153000,\"eval_count\":13,\"eval_duration\":2359158000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 2461.61,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If light and shadow are visible, notice their contrast."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:48.0227153Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,7026,92],\"total_duration\":2450702800,\"load_duration\":34498200,\"prompt_eval_count\":208,\"prompt_eval_cached_count\":207,\"prompt_eval_duration\":160273000,\"eval_count\":13,\"eval_duration\":2201738000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 2289.63,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If light and shadow are visible, notice their contrast."
+        ],
+        "duration": 5,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:50.3153424Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,7026,92],\"total_duration\":2278745800,\"load_duration\":49822700,\"prompt_eval_count\":208,\"prompt_eval_cached_count\":207,\"prompt_eval_duration\":154752000,\"eval_count\":13,\"eval_duration\":2048190000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 4905.62,
+      "card": {
+        "title": "Notice shape",
+        "steps": [
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:55.2199024Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,7026,92],\"total_duration\":4890843800,\"load_duration\":26142600,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2190516000,\"eval_count\":15,\"eval_duration\":2656726000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 2783.44,
+      "card": {
+        "title": "Notice shape",
+        "steps": [
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:58.007699Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,7026,92],\"total_duration\":2771757100,\"load_duration\":28255200,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":168384000,\"eval_count\":15,\"eval_duration\":2554889000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 1849.18,
+      "card": {
+        "title": "Notice shape",
+        "steps": [
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 5,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:10:59.8603446Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,7026,92],\"total_duration\":1838308100,\"load_duration\":59477100,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":162083000,\"eval_count\":12,\"eval_duration\":1575403000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 3725.84,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:03.5845954Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,7026,92],\"total_duration\":3711247700,\"load_duration\":23926200,\"prompt_eval_count\":203,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2073139000,\"eval_count\":12,\"eval_duration\":1599619000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 1925.58,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:05.5172276Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,7026,92],\"total_duration\":1915542700,\"load_duration\":44001300,\"prompt_eval_count\":203,\"prompt_eval_cached_count\":202,\"prompt_eval_duration\":138323000,\"eval_count\":12,\"eval_duration\":1713394000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 1861.88,
+      "card": {
+        "title": "Notice light",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition."
+        ],
+        "duration": 5,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 1 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 5 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:07.3838471Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,16,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,7026,92],\"total_duration\":1852099200,\"load_duration\":31873300,\"prompt_eval_count\":203,\"prompt_eval_cached_count\":202,\"prompt_eval_duration\":167916000,\"eval_count\":12,\"eval_duration\":1634332000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 5245.05,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:12.6286478Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,7026,92],\"total_duration\":5233145100,\"load_duration\":24911800,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":133,\"prompt_eval_duration\":2714873000,\"eval_count\":19,\"eval_duration\":2478055000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 3016.77,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:15.6514773Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,7026,92],\"total_duration\":3007561100,\"load_duration\":21344100,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":206,\"prompt_eval_duration\":146074000,\"eval_count\":19,\"eval_duration\":2819443000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "elapsedMs": 2984.69,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:18.6381988Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2974257000,\"load_duration\":26594200,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":206,\"prompt_eval_duration\":152187000,\"eval_count\":19,\"eval_duration\":2782447000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 4946.98,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:23.5855276Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":4933687400,\"load_duration\":27490500,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2348712000,\"eval_count\":18,\"eval_duration\":2542204000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 2604.75,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:26.1960186Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2594871400,\"load_duration\":29827500,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":208,\"prompt_eval_duration\":183637000,\"eval_count\":18,\"eval_duration\":2359782000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 2554.01,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:28.7568105Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2545639100,\"load_duration\":27857100,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":208,\"prompt_eval_duration\":128066000,\"eval_count\":18,\"eval_duration\":2372622000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 4948.27,
+      "card": {
+        "title": "Notice shape and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:33.6992271Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,27532,907,2950,2090,7026,92],\"total_duration\":4932300600,\"load_duration\":20243900,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2231730000,\"eval_count\":18,\"eval_duration\":2665635000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 2783.9,
+      "card": {
+        "title": "Notice shape and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:36.504196Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2769149200,\"load_duration\":30969600,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":204,\"prompt_eval_duration\":165694000,\"eval_count\":18,\"eval_duration\":2545856000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 2539.74,
+      "card": {
+        "title": "Notice shape and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:39.0484491Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2532000800,\"load_duration\":22151000,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":204,\"prompt_eval_duration\":133582000,\"eval_count\":18,\"eval_duration\":2362378000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 5142.14,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:44.1880157Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":5128982200,\"load_duration\":19198200,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2195085000,\"eval_count\":18,\"eval_duration\":2896762000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 2852.9,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:47.0503252Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2844718100,\"load_duration\":33089500,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":146296000,\"eval_count\":18,\"eval_duration\":2648903000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 2611.29,
+      "card": {
+        "title": "Notice light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 10,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 2 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 10 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:49.664793Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,17,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,15,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":2601510300,\"load_duration\":22546300,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":121679000,\"eval_count\":18,\"eval_duration\":2436565000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 5942.86,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:55.6103736Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":5932175400,\"load_duration\":39063500,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":133,\"prompt_eval_duration\":2452129000,\"eval_count\":23,\"eval_duration\":3404797000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 4240.26,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:11:59.8566658Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":4229458200,\"load_duration\":35603100,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":206,\"prompt_eval_duration\":199167000,\"eval_count\":23,\"eval_duration\":3978868000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "elapsedMs": 4167.32,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "street",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a street pause.\nSetting guidance: Focus on a stationary detail nearby, without following movement or changing position.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:03.9898385Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_contrast\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,8592,18087,624,15400,18821,25,25806,389,264,52635,7716,14046,11,2041,2701,7203,476,10018,2309,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,62663,559,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":4119987000,\"load_duration\":24998600,\"prompt_eval_count\":207,\"prompt_eval_cached_count\":206,\"prompt_eval_duration\":152978000,\"eval_count\":23,\"eval_duration\":3926203000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 6912.33,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:10.9213273Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":6875632300,\"load_duration\":85050300,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2651110000,\"eval_count\":23,\"eval_duration\":4116194000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 4350.7,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:15.3011839Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":4342502600,\"load_duration\":42138200,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":208,\"prompt_eval_duration\":156418000,\"eval_count\":23,\"eval_duration\":4129294000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "elapsedMs": 5242.67,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If light and shadow are visible, notice their contrast.",
+          "If a sound is already audible, notice its rhythm."
+        ],
+        "duration": 15,
+        "surroundings": "terrace",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a terrace pause.\nSetting guidance: Focus on nearby contrasts, without seeking a wider view or moving toward an edge.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:20.5463781Z\",\"response\":\"{\\n  \\\"cues\\\": [\\n    \\\"outline_shape\\\",\\n    \\\"brightness_contrast\\\",\\n    \\\"sound_rhythm\\\"\\n  ]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,51478,18087,624,15400,18821,25,25806,389,14046,82279,11,2041,10887,264,21864,1651,476,7218,8841,458,6821,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,2278,262,330,44130,13597,756,262,330,99056,62663,559,756,262,330,27532,1710,60154,698,220,5133,92],\"total_duration\":5232322000,\"load_duration\":21713800,\"prompt_eval_count\":209,\"prompt_eval_cached_count\":208,\"prompt_eval_duration\":136411000,\"eval_count\":32,\"eval_duration\":5060346000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 5277.7,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:25.8295819Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":5268847900,\"load_duration\":25016500,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2126118000,\"eval_count\":22,\"eval_duration\":3102388000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 3768.33,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:29.6019562Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":3757676600,\"load_duration\":22659700,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":204,\"prompt_eval_duration\":164470000,\"eval_count\":23,\"eval_duration\":3552901000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "elapsedMs": 3436.38,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If an outline is visible, notice its shape.",
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness."
+        ],
+        "duration": 15,
+        "surroundings": "courtyard",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a courtyard pause.\nSetting guidance: Notice relationships between whatever outlines, colours or sounds are present.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:33.0415599Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"outline_shape\\\", \\\"brightness_change\\\", \\\"sound_loudness\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,65285,18087,624,15400,18821,25,24742,11871,1948,8820,49629,11,26138,476,10362,525,3042,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,44130,13597,497,330,99056,15947,497,330,27532,907,2950,2090,7026,92],\"total_duration\":3424900500,\"load_duration\":19778200,\"prompt_eval_count\":205,\"prompt_eval_cached_count\":204,\"prompt_eval_duration\":150305000,\"eval_count\":23,\"eval_duration\":3238026000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 1,
+      "seed": 42,
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 6041.77,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 42
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:39.0890686Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":6021794600,\"load_duration\":24854400,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":138,\"prompt_eval_duration\":2477211000,\"eval_count\":22,\"eval_duration\":3496740000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 2,
+      "seed": 43,
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 3259.89,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 43
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:42.3530031Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":3251436700,\"load_duration\":21998600,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":131707000,\"eval_count\":22,\"eval_duration\":3077988000}",
+      "rawTruncated": false
+    },
+    {
+      "phase": "warm",
+      "sample": 3,
+      "seed": 44,
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "elapsedMs": 3340.07,
+      "card": {
+        "title": "Notice shape and light and sound",
+        "steps": [
+          "If brightness changes across a visible area, notice the transition.",
+          "If a sound is already audible, notice its loudness.",
+          "If an outline is visible, notice its shape."
+        ],
+        "duration": 15,
+        "surroundings": "campus",
+        "source": "local-ai"
+      },
+      "settings": {
+        "model": "qwen3:1.7b",
+        "stream": false,
+        "think": false,
+        "system": "Choose brief optional observation cues, not descriptive prose.\nThe actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.\nUse only outline cues if visible, brightness cues if visible, or sound cues already audible.\nThe fixed application wording starts with If and remains optional when a sensation is absent.\nDo not explain the observation or describe its result. Do not name objects, weather or sound sources.\nThe person remains in a safe stationary spot. No movement, contact, equipment or data collection.\nReturn JSON with exactly one field, cues, containing only the allowed cue names. No other fields.",
+        "prompt": "Choose exactly 3 distinct cues for a campus pause.\nSetting guidance: Notice an ordinary detail without identifying people or reading signs.\nChoose only from the six allowed cue names in the schema. Do not return title or steps.\nAbout 15 minutes is a loose suggestion, not something to count or time.",
+        "format": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cues"
+          ],
+          "properties": {
+            "cues": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "outline_shape",
+                  "outline_edge",
+                  "brightness_contrast",
+                  "brightness_change",
+                  "sound_rhythm",
+                  "sound_loudness"
+                ]
+              }
+            }
+          }
+        },
+        "options": {
+          "num_predict": 256,
+          "temperature": 0.2,
+          "seed": 44
+        },
+        "keep_alive": "10m"
+      },
+      "raw": "{\"model\":\"qwen3:1.7b\",\"created_at\":\"2026-10-07T13:12:45.6980782Z\",\"response\":\"{\\n  \\\"cues\\\": [\\\"brightness_change\\\", \\\"sound_loudness\\\", \\\"outline_shape\\\"]\\n}\",\"done\":true,\"done_reason\":\"stop\",\"context\":[151644,8948,271,24051,9814,10101,21930,55916,11,537,52844,60701,624,785,5042,6109,374,9788,25,2581,2060,429,3151,6171,11,29305,11,10779,476,9104,3000,624,10253,1172,21101,55916,421,9434,11,32206,55916,421,9434,11,476,5112,55916,2669,79315,624,785,8356,3766,60227,8471,448,1416,323,8458,10101,979,264,36292,374,27211,624,5404,537,10339,279,21930,476,7512,1181,1102,13,3155,537,829,6171,11,9104,476,5112,8173,624,785,1697,8458,304,264,6092,52635,7702,13,2308,7203,11,3645,11,7096,476,821,4426,624,5598,4718,448,6896,825,2070,11,55916,11,8482,1172,279,5420,49398,5036,13,2308,1008,5043,13,151645,198,151644,872,198,24051,6896,220,18,12460,55916,369,264,15319,18087,624,15400,18821,25,24742,458,19119,7716,2041,24588,1251,476,5290,11929,624,24051,1172,504,279,4743,5420,49398,5036,304,279,10802,13,3155,537,470,2265,476,7354,624,10494,220,16,20,4420,374,264,20174,23776,11,537,2494,311,1760,476,882,13,608,2152,5854,766,151645,198,151644,77091,198,151667,271,151668,271,515,220,330,66,1137,788,4383,99056,15947,497,330,27532,907,2950,2090,497,330,44130,13597,7026,92],\"total_duration\":3330216200,\"load_duration\":24415600,\"prompt_eval_count\":204,\"prompt_eval_cached_count\":203,\"prompt_eval_duration\":152880000,\"eval_count\":22,\"eval_duration\":3136296000}",
+      "rawTruncated": false
+    }
+  ],
+  "baseline": [
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 5,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 10,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "street"
+      },
+      "activity": {
+        "title": "A street pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "terrace"
+      },
+      "activity": {
+        "title": "A terrace pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "courtyard"
+      },
+      "activity": {
+        "title": "A courtyard pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    },
+    {
+      "request": {
+        "duration": 15,
+        "surroundings": "campus"
+      },
+      "activity": {
+        "title": "A campus pause",
+        "steps": [
+          "From a safe stationary spot, notice how light falls on the surfaces around you.",
+          "Let your gaze settle on one ordinary shape. Notice its outline without needing to name it.",
+          "If you feel like staying longer, notice the quiet gaps between nearby sounds."
+        ]
+      }
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { baselineFor, evaluationCases } from '../scripts/baseline.ts';
-import { measureTrial } from '../scripts/evaluate.ts';
+import { evaluationTrials, measureTrial } from '../scripts/evaluate.ts';
 import { parseModelActivity } from '../src/domain.ts';
 import { GenerationError } from '../src/ollama.ts';
 
@@ -44,3 +44,21 @@ test('keeps failures rather than dropping them from the report', async () => {
   const result = await measureTrial(input, async () => { throw new GenerationError('timeout', 'Timed out.'); }, () => times.shift()!);
   assert.deepEqual(result, { request: input, elapsedMs: 30, error: { code: 'timeout', message: 'Timed out.' } });
 });
+
+test('plans one cold trial and three reproducible samples of every combination', () => {
+  const trials = evaluationTrials(3);
+  assert.equal(trials.length, 37);
+  assert.deepEqual(trials[0], { phase: 'cold', sample: 0, seed: 42, request: { duration: 5, surroundings: 'street' } });
+  for (const key of ['5/street', '5/terrace', '5/courtyard', '5/campus',
+    '10/street', '10/terrace', '10/courtyard', '10/campus',
+    '15/street', '15/terrace', '15/courtyard', '15/campus']) {
+    const cases = trials.filter(t => t.phase === 'warm' && `${t.request.duration}/${t.request.surroundings}` === key);
+    assert.deepEqual(cases.map(t => [t.sample, t.seed]), [[1, 42], [2, 43], [3, 44]]);
+  }
+});
+
+for (const samples of [0, 1.5, 4, NaN, Infinity]) {
+  test(`rejects an unbounded or invalid sample count ${samples}`, () => {
+    assert.throws(() => evaluationTrials(samples), RangeError);
+  });
+}
