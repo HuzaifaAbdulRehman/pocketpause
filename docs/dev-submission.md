@@ -67,8 +67,10 @@ failed generation shows an error rather than a disguised fixed card.
 The cue report covers one cold request and three warm samples for each of the
 12 combinations: 37/37 cards were valid. Warm requests took 1.85–6.91 seconds
 (3.71 seconds average); the cold request took 16.89 seconds. The 36 warm
-cards produced 11 distinct rendered step sets. The finite vocabulary limits
-variety, and this is a software desk review rather than an outdoor trial.
+cards produced 11 distinct rendered step sets. Eleven of the twelve
+combinations repeated across all three warm seeds; only 15-minute terrace
+varied. The finite vocabulary limits variety, and this is a software desk
+review rather than an outdoor trial.
 
 The fixed non-AI baseline also supplies 12 usable cards and remains simpler.
 The cue cards pass the desk checks for optional stationary observation, but I

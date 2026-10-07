@@ -7,8 +7,10 @@ fixed renderer, rather than model prose, supplied the user-facing sentences.
 
 Warm requests took 1.85–6.91 seconds, averaging 3.71 seconds. The cold
 request took 16.89 seconds. The 36 warm cards produced 11 distinct rendered
-step sets. That limited variety is an honest limitation of the six-cue
-vocabulary, not evidence that the model understands a particular place.
+step sets. Eleven of the twelve combinations repeated the same rendered steps
+across all three warm seeds; only 15-minute terrace produced two variants.
+That limited variety is an honest limitation of the six-cue vocabulary, not
+evidence that the model understands a particular place.
 
 The unchanged baseline still supplies 12 usable cards and remains simpler.
 Manual desk review checked context fit, no required equipment or collection,
