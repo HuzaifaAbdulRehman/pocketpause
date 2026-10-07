@@ -1,5 +1,6 @@
-import { makeCard, parseModelActivity } from './domain.ts';
-import type { ActivityCard, ActivityRequest } from './domain.ts';
+import { makeCard, OBSERVATION_CUES, parseModelCues, renderCueActivity } from './domain.ts';
+import type { ActivityCard, ActivityRequest, Surroundings } from './domain.ts';
+import { randomInt } from 'node:crypto';
 
 export class GenerationError extends Error {
   code: 'timeout' | 'unavailable' | 'invalid-output';
@@ -10,23 +11,29 @@ export class GenerationError extends Error {
 }
 
 const format = {
-  type: 'object', additionalProperties: false, required: ['title', 'steps'],
+  type: 'object', additionalProperties: false, required: ['cues'],
   properties: {
-    title: { type: 'string', minLength: 1, maxLength: 80 },
-    steps: { type: 'array', minItems: 1, maxItems: 3, items: { type: 'string', minLength: 1, maxLength: 180 } },
+    cues: {
+      type: 'array', minItems: 1, maxItems: 3, uniqueItems: true,
+      items: { type: 'string', enum: [...OBSERVATION_CUES] },
+    },
   },
 };
 
-const system = `Create a brief English outdoor pause. The person is already in a safe stationary spot.
+const system = `Choose brief optional observation cues, not descriptive prose.
 The actual scene is unknown: never assert that specific objects, wildlife, plants or weather exist.
-Give 1 to 3 short instructions using only colours or outlines if visible, brightness contrasts if visible,
-or any ambient sound already audible. Refer to whatever is present, without naming imagined examples.
-Every step must begin with "If" and make the observation optional when the sensation is absent.
-Keep the person in place. Observing is enough: no equipment, collecting, exercise, interaction or data collection.
-Avoid roads, traffic, edges and heights. No medical advice. The time is approximate; no measuring it.
-Return only JSON with title and steps. Do not add duration or surroundings.`;
+Use only outline cues if visible, brightness cues if visible, or sound cues already audible.
+The fixed application wording starts with If and remains optional when a sensation is absent.
+Do not explain the observation or describe its result. Do not name objects, weather or sound sources.
+The person remains in a safe stationary spot. No movement, contact, equipment or data collection.
+Return JSON with exactly one field, cues, containing only the allowed cue names. No other fields.`;
 
-const disallowed = /\b(cross|climb|jump|run|jog|swim|touch|pick|collect|eat|drink|taste|photograph|record|write|track|timer|camera|phone|stranger|roof|ledge|traffic|road|purchase|buy)\b|\b(take|capture)\s+(a\s+)?(photo|picture)|\b(talk|speak|ask)\s+(to\s+)?(someone|anyone|a\s+person)/i;
+const settingGuidance: Record<Surroundings, string> = {
+  street: 'Focus on a stationary detail nearby, without following movement or changing position.',
+  terrace: 'Focus on nearby contrasts, without seeking a wider view or moving toward an edge.',
+  courtyard: 'Notice relationships between whatever outlines, colours or sounds are present.',
+  campus: 'Notice an ordinary detail without identifying people or reading signs.',
+};
 
 function invalidOutput(): GenerationError {
   return new GenerationError('invalid-output', 'The local model returned an unusable activity. Try again.');
@@ -71,10 +78,17 @@ async function readBounded(response: Response, signal: AbortSignal): Promise<str
   }
 }
 
-export function createGenerator(options: { fetchImpl?: typeof fetch; model?: string; timeoutMs?: number } = {}):
+export function createGenerator(options: { fetchImpl?: typeof fetch; model?: string; timeoutMs?: number; seed?: number } = {}):
   (request: ActivityRequest, signal?: AbortSignal) => Promise<ActivityCard> {
+  if (options.seed !== undefined && (!Number.isInteger(options.seed) || options.seed < 0 || options.seed >= 2147483648)) {
+    throw new RangeError('Seed must be an integer from 0 to 2147483647.');
+  }
   const fetchImpl = options.fetchImpl ?? fetch;
+  let nextSeed = options.seed ?? randomInt(2147483648);
   return async (request, signal) => {
+    const count = request.duration / 5;
+    const seed = options.seed ?? nextSeed;
+    nextSeed = (nextSeed + 1) % 2147483648;
     const controller = new AbortController();
     const cancel = () => controller.abort(signal?.reason);
     signal?.addEventListener('abort', cancel, { once: true });
@@ -88,12 +102,13 @@ export function createGenerator(options: { fetchImpl?: typeof fetch; model?: str
         response = await fetchImpl('http://127.0.0.1:11434/api/generate', {
           method: 'POST', signal: controller.signal, headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ model: options.model ?? 'qwen3:1.7b', stream: false, think: false,
-            system, prompt: `Write an activity for about ${request.duration} minutes outdoors in ${request.surroundings}.
-This is not a scene description. You cannot see this place. Never invent objects or weather.
-Each step MUST start with "If". Use a condition about whatever is visible or audible, then one simple observation.
-For example: "If any outline catches your eye, notice where it curves or straightens from your stationary spot."
-Vary the attention cue, not the imagined scenery. The person can skip any step and simply pause.`,
-            format, options: { num_predict: 256, temperature: 0.2, seed: 42 }, keep_alive: '10m' }),
+            system, prompt: `Choose exactly ${count} distinct cues for a ${request.surroundings} pause.
+Setting guidance: ${settingGuidance[request.surroundings]}
+Choose only from the six allowed cue names in the schema. Do not return title or steps.
+About ${request.duration} minutes is a loose suggestion, not something to count or time.`,
+            format: { ...format, properties: { ...format.properties,
+              cues: { ...format.properties.cues, minItems: count, maxItems: count } } },
+            options: { num_predict: 256, temperature: 0.2, seed }, keep_alive: '10m' }),
         });
       } catch {
         if (controller.signal.aborted) throw controller.signal.reason;
@@ -108,10 +123,8 @@ Vary the attention cue, not the imagined scenery. The person can skip any step a
         if (!outer || typeof outer !== 'object' || !('done' in outer) || outer.done !== true ||
           !('response' in outer) || typeof outer.response !== 'string' ||
           ('done_reason' in outer && outer.done_reason === 'length')) throw invalidOutput();
-        const activity = parseModelActivity(JSON.parse(outer.response));
-        if (activity.steps.some(step => !/^If\b/.test(step)) ||
-          [activity.title, ...activity.steps].some(text => disallowed.test(text))) throw invalidOutput();
-        return makeCard(request, activity);
+        const cues = parseModelCues(JSON.parse(outer.response), count);
+        return makeCard(request, renderCueActivity(cues));
       } catch (error) {
         if (controller.signal.aborted) throw controller.signal.reason;
         if (error instanceof GenerationError) throw error;
